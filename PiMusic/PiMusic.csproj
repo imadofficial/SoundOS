@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Latin\Default.otf" />
+    <None Remove="Assets\Placeholders\Cover2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Management" Version="7.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Latin\Default.otf" />
+    <Resource Include="Assets\Placeholders\Cover.jpg" />
+    <Resource Include="Assets\Placeholders\Cover2.jpg" />
+  </ItemGroup>
+
+</Project>

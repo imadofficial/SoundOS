@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiMusic", "PiMusic\PiMusic.csproj", "{4135469E-0C56-466B-8ABA-85CC2A752292}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4135469E-0C56-466B-8ABA-85CC2A752292}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4135469E-0C56-466B-8ABA-85CC2A752292}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4135469E-0C56-466B-8ABA-85CC2A752292}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4135469E-0C56-466B-8ABA-85CC2A752292}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54725AD1-0C72-4073-9F23-AE23A1F0A5C9}
+	EndGlobalSection
+EndGlobal

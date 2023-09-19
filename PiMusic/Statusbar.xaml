@@ -1,0 +1,34 @@
+﻿<Page x:Class="PiMusic.Statusbar"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PiMusic"
+      mc:Ignorable="d" 
+      d:DesignHeight="70" d:DesignWidth="800"
+      Title="Statusbar">
+
+    <Grid>
+        <StackPanel Height="40" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,-5,40,0">
+            <Border x:Name="Signal1" Margin="0,15,2,0" Height="10" Width="6" Background="Black" CornerRadius="2"/>
+            <Border x:Name="Signal2" Margin="0,10,2,0" Height="15" Width="6" Background="Black" CornerRadius="2"/>
+            <Border x:Name="Signal3" Margin="0,5,2,0" Height="20" Width="6" Background="Black" CornerRadius="2" Opacity="0.5"/>
+            <Border x:Name="Signal4" Margin="0,0,10,0" Height="25" Width="6" Background="Black" CornerRadius="2" Opacity="0.5"/>
+
+            <TextBlock Text="4G" Margin="-4,0,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock x:Name="BatteryPercentage" Text="69%" Margin="20,0,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock Text="16:20" Margin="20,0,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="30,0,0,0">
+            
+            <Border CornerRadius="10" VerticalAlignment="Top" Margin="0,5,0,0">
+                <Image Name="imgPic1" Width="70" Height="70" Source="Assets/Placeholders/Cover2.jpg"/>
+            </Border>
+            <StackPanel Margin="10,5,0,0" Orientation="Vertical">
+                <TextBlock Text="+ERABY+E CONNEC+10N" Margin="0,5,0,0" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBlock Text="Camellia" Margin="0,0,0,0" FontSize="18" FontFamily="/Assets/Latin/Default.otf#SF PrO Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

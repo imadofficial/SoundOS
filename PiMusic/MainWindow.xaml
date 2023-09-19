@@ -1,0 +1,13 @@
+﻿<Window x:Class="PiMusic.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PiMusic"
+        mc:Ignorable="d"
+        Title="Imad's Music Player (v1.0.10)" Height="720" Width="1280">
+    <Grid>
+        <Frame x:Name="MainContent" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="Statebar" Margin="0,0,0,0" Height="70" VerticalAlignment="Top" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "cX/zf3u4VfU+aRYzHw94g33uewjUid92ZdvI0mByJGHOWRYK3uMRDYiUHZEPINp44O65xIO/ZJU55tO/3K3diQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Imad.Amroug\\source\\repos\\PiMusic\\PiMusic\\PiMusic.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Imad.Amroug\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
+    "C:\\Users\\Imad.Amroug\\.nuget\\packages\\system.management\\7.0.2\\system.management.7.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
