@@ -8,8 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Icons\Airplay.png" />
+    <None Remove="Assets\Icons\Home.png" />
+    <None Remove="Assets\Icons\SD-Card.png" />
     <None Remove="Assets\Latin\Default.otf" />
-    <None Remove="Assets\Placeholders\Cover2.jpg" />
+    <None Remove="Assets\Placeholders\Cover.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,9 +20,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\Icons\Airplay.png" />
+    <Resource Include="Assets\Icons\Home.png" />
+    <Resource Include="Assets\Icons\SD-Card.png" />
     <Resource Include="Assets\Latin\Default.otf" />
     <Resource Include="Assets\Placeholders\Cover.jpg" />
-    <Resource Include="Assets\Placeholders\Cover2.jpg" />
   </ItemGroup>
 
 </Project>

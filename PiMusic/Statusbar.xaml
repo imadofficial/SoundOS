@@ -9,26 +9,31 @@
       Title="Statusbar">
 
     <Grid>
-        <StackPanel Height="40" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,-5,40,0">
+        <StackPanel Height="40" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,40,0">
+            <TextBlock Opacity="0" Text="R" Margin="0,0,0,0" FontSize="11" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
             <Border x:Name="Signal1" Margin="0,15,2,0" Height="10" Width="6" Background="Black" CornerRadius="2"/>
             <Border x:Name="Signal2" Margin="0,10,2,0" Height="15" Width="6" Background="Black" CornerRadius="2"/>
             <Border x:Name="Signal3" Margin="0,5,2,0" Height="20" Width="6" Background="Black" CornerRadius="2" Opacity="0.5"/>
             <Border x:Name="Signal4" Margin="0,0,10,0" Height="25" Width="6" Background="Black" CornerRadius="2" Opacity="0.5"/>
 
-            <TextBlock Text="4G" Margin="-4,0,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
-            <TextBlock x:Name="BatteryPercentage" Text="69%" Margin="20,0,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock Text="GPRS" Margin="-4,0,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
             <TextBlock Text="16:20" Margin="20,0,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="30,0,0,0">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+            <Image RenderOptions.BitmapScalingMode="HighQuality" Name="Lossless" Width="40" Height="40" Source="Assets/Icons/Home.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,15,0,0"/>
+            <TextBlock Text="Home" Margin="10,0,0,0" FontSize="28" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        </StackPanel>
+
+        <!--StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="30,0,0,0">
             
             <Border CornerRadius="10" VerticalAlignment="Top" Margin="0,5,0,0">
-                <Image Name="imgPic1" Width="70" Height="70" Source="Assets/Placeholders/Cover2.jpg"/>
+                <Image Name="imgPic1" Width="70" Height="70" Source="Assets/Placeholders/Cover.jpg"/>
             </Border>
             <StackPanel Margin="10,5,0,0" Orientation="Vertical">
-                <TextBlock Text="+ERABY+E CONNEC+10N" Margin="0,5,0,0" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                <TextBlock Text="Camellia" Margin="0,0,0,0" FontSize="18" FontFamily="/Assets/Latin/Default.otf#SF PrO Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBlock Text="Manito" Margin="0,5,0,0" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBlock Text="CSR" Margin="0,0,0,0" FontSize="18" FontFamily="/Assets/Latin/Default.otf#SF PrO Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
             </StackPanel>
-        </StackPanel>
+        </StackPanel-->
     </Grid>
 </Page>

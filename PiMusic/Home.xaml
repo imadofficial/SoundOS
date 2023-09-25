@@ -9,6 +9,28 @@
       Title="Home">
 
     <Grid>
-        <Border Height="130" VerticalAlignment="Top" Opacity="0.3" Margin="0,-55,0,0" Background="Black" CornerRadius="20"/>
+        <Grid x:Name="MusicBlok" Height="300" Width="310" HorizontalAlignment="Left" Margin="30,50,0,0">
+            <Border Opacity="0.5" Background="#7CFC00" CornerRadius="15"/>
+            <Image RenderOptions.BitmapScalingMode="HighQuality" Name="SourceIcon" Width="50" Height="50" Source="Assets/Icons/SD-Card.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0"/>
+            <Image RenderOptions.BitmapScalingMode="HighQuality" Name="AirPlay" Width="30" Height="30" Source="Assets/Icons/Airplay.png" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,15"/>
+            <Image RenderOptions.BitmapScalingMode="HighQuality" Name="Lossless" Width="30" Height="30" Source="Assets/Icons/Lossless.png" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,20,0"/>
+
+            <TextBlock Text="Camellia" Foreground="Black" Margin="80,10,0,0" FontSize="18" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBlock FontStretch="UltraCondensed" Text="S.A.T.E.L.L.I.T.E." Width="200" Foreground="Black" Margin="80,26.5,0,0" FontSize="28" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+            <Rectangle Margin="0,0,0,20" RadiusX="10" RadiusY="10" Width="150" Height="150">
+                <Rectangle.Fill>
+                    <ImageBrush RenderOptions.BitmapScalingMode="HighQuality" ImageSource="/Assets/Placeholders/Cover.jpg"/>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <TextBlock Text="0:00" Foreground="Black" Margin="25,0,25,50" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+            <TextBlock Text="3:21" Foreground="Black" Margin="25,0,25,50" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+            <TextBlock Opacity="0" Text="Live" Foreground="Black" Margin="25,0,25,50" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+            <Border Margin="0,175,0,0" HorizontalAlignment="Center" x:Name="BackgroundBar" Width="160" Height="8" Background="Gray" CornerRadius="4"/>
+        </Grid>
+
+        <Grid x:Name="WeerBlok">
+        </Grid>
     </Grid>
 </Page>
