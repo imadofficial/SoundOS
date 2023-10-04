@@ -13,6 +13,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ManagedNativeWifi;
+using System.Net.NetworkInformation;
+using System.Threading;
+using System.ComponentModel;
+using System.Windows.Media.Animation;
 
 namespace PiMusic
 {
@@ -21,28 +26,96 @@ namespace PiMusic
     /// </summary>
     public partial class Statusbar : Page
     {
+        System.Windows.Threading.DispatcherTimer Timer = new System.Windows.Threading.DispatcherTimer();
+        public static Statusbar Instance;
+
         public Statusbar()
         {
             InitializeComponent();
-            BatteryPerc();
+            Instance = this;
+
+            SignalStrength();
+
+            Timer.Tick += new EventHandler(DefaultTimer);
+            Timer.Interval = new TimeSpan(0, 0, 1);
+            Timer.Start();
         }
 
-        private void BatteryPerc()
+        private void DefaultTimer(object sender, EventArgs e)
         {
-            System.Management.ObjectQuery query = new ObjectQuery("Select * FROM Win32_Battery");
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher(query);
+            Time.Text = DateTime.Now.ToString("HH:mm");
+        }
 
-            ManagementObjectCollection collection = searcher.Get();
-
-            foreach (ManagementObject mo in collection)
+        public void SwitchColor(int ColorMode) //0 = Zwart, 1 = Wit
+        {
+            string ColorCode;
+            if(ColorMode == 0)
             {
-                foreach (PropertyData property in mo.Properties)
-                {
-                    Console.WriteLine("Property {0}: Value is {1}", property.Name, property.Value);
-                    //BatteryPercentage.Text = property.Value.ToString();
-                }
+                ColorCode = "#000000";
+            }
+            else
+            {
+                ColorCode = "#FFFFFF";
             }
 
+            ColorAnimation TextColorTransition = new ColorAnimation()
+            {
+                To = (Color)ColorConverter.ConvertFromString(ColorCode),
+                Duration = TimeSpan.FromSeconds(0.2)
+            };
+
+            SolidColorBrush Object = new SolidColorBrush();
+            Time.Foreground = Object;
+            Object.BeginAnimation(SolidColorBrush.ColorProperty, TextColorTransition);
+
+            ConnectionType.Foreground = Object;
+            Object.BeginAnimation(SolidColorBrush.ColorProperty, TextColorTransition);
+
+            CurrentApp.Foreground = Object;
+            Object.BeginAnimation(SolidColorBrush.ColorProperty, TextColorTransition);
+
+            Signal1.Background = Object;
+            Object.BeginAnimation(SolidColorBrush.ColorProperty, TextColorTransition);
+
+            Signal2.Background = Object;
+            Object.BeginAnimation(SolidColorBrush.ColorProperty, TextColorTransition);
+
+            Signal3.Background = Object;
+            Object.BeginAnimation(SolidColorBrush.ColorProperty, TextColorTransition);
+
+            Signal4.Background = Object;
+            Object.BeginAnimation(SolidColorBrush.ColorProperty, TextColorTransition);
+        }
+
+        private void SignalStrength()
+        {
+            string targetInterfaceDescription = "Realtek RTL8852BE WiFi 6 802.11ax PCIe Adapter";
+            NetworkInterface[] adapters = NetworkInterface.GetAllNetworkInterfaces();
+            var targetAdapter = adapters.FirstOrDefault(adapter => adapter.Description == targetInterfaceDescription && adapter.NetworkInterfaceType == NetworkInterfaceType.Wireless80211);
+
+            if (targetAdapter != null)
+            {
+                if (targetAdapter.OperationalStatus == OperationalStatus.Up)
+                {
+                    ConnectionType.Text = ("WiFi");
+                }
+                else
+                {
+                    ConnectionType.Text = ("Geen verbinding");
+                    Signal1.Opacity = 0.5;
+                    Signal2.Opacity = 0.5;
+                    Signal3.Opacity = 0.5;
+                    Signal4.Opacity = 0.5;
+                }
+            }
+            else
+            {
+                ConnectionType.Text = ("Geen driver");
+                Signal1.Opacity = 0.5;
+                Signal2.Opacity = 0.5;
+                Signal3.Opacity = 0.5;
+                Signal4.Opacity = 0.5;
+            }
         }
     }
 }

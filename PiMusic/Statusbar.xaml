@@ -13,16 +13,16 @@
             <TextBlock Opacity="0" Text="R" Margin="0,0,0,0" FontSize="11" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
             <Border x:Name="Signal1" Margin="0,15,2,0" Height="10" Width="6" Background="Black" CornerRadius="2"/>
             <Border x:Name="Signal2" Margin="0,10,2,0" Height="15" Width="6" Background="Black" CornerRadius="2"/>
-            <Border x:Name="Signal3" Margin="0,5,2,0" Height="20" Width="6" Background="Black" CornerRadius="2" Opacity="0.5"/>
-            <Border x:Name="Signal4" Margin="0,0,10,0" Height="25" Width="6" Background="Black" CornerRadius="2" Opacity="0.5"/>
+            <Border x:Name="Signal3" Margin="0,5,2,0" Height="20" Width="6" Background="Black" CornerRadius="2" Opacity="1"/>
+            <Border x:Name="Signal4" Margin="0,0,10,0" Height="25" Width="6" Background="Black" CornerRadius="2" Opacity="1"/>
 
-            <TextBlock Text="GPRS" Margin="-4,0,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
-            <TextBlock Text="16:20" Margin="20,0,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock x:Name="ConnectionType" Text="WiFi" Margin="-4,0,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock x:Name="Time" Text="16:20" Margin="20,0,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
             <Image RenderOptions.BitmapScalingMode="HighQuality" Name="Lossless" Width="40" Height="40" Source="Assets/Icons/Home.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,15,0,0"/>
-            <TextBlock Text="Home" Margin="10,0,0,0" FontSize="28" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <TextBlock x:Name="CurrentApp" Text="Thuis Scherm" Margin="10,0,0,0" FontSize="28" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Center" />
         </StackPanel>
 
         <!--StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="30,0,0,0">
