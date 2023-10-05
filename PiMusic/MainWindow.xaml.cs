@@ -23,7 +23,7 @@ namespace PiMusic
         public MainWindow()
         {
             InitializeComponent();
-            MainContent.Content = new Home();
+            HomeScreen.Content = new Home();
             Statebar.Content = new Statusbar();
         }
     }
