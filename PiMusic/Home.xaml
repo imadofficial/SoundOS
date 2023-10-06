@@ -9,16 +9,16 @@
       Title="Home">
 
     <Grid>
-        <Grid x:Name="MusicBlok" Height="350" Width="350" HorizontalAlignment="Left" Margin="30,50,0,0">
-            <Border x:Name="MusicBlokBG" Opacity="0.5" Background="#8B0000" CornerRadius="20"/>
+        <Grid x:Name="MusicBlok" Height="350" Width="350" HorizontalAlignment="Center" Margin="-370,50,0,0">
+            <Border x:Name="MusicBlokBG" Opacity="0.5" Background="#394342" CornerRadius="20"/>
             <Image x:Name="AirPlay" RenderOptions.BitmapScalingMode="HighQuality" Width="30" Height="30" Source="Assets/Icons/Airplay.png" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,15"/>
 
-            <TextBlock x:Name="SongTitle" FontStretch="UltraCondensed" Text="+ERABY+E CONNEC+10N" Foreground="Black" Margin="20,10,20,0" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Top" />
-            <TextBlock x:Name="SongArtist" Text="かめりあ" Foreground="Black" Margin="0,38,0,0" FontSize="16" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            <TextBlock x:Name="SongTitle" FontStretch="UltraCondensed" Text="Belle de Nuit" Foreground="Black" Margin="20,10,20,0" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            <TextBlock x:Name="SongArtist" Text="黒皇帝 (feat. AKA)" Foreground="Black" Margin="0,38,0,0" FontSize="16" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Top" />
 
             <Rectangle x:Name="CoverArt" Margin="0,0,0,20" RadiusX="10" RadiusY="10" Width="200" Height="200">
                 <Rectangle.Fill>
-                    <ImageBrush RenderOptions.BitmapScalingMode="HighQuality" ImageSource="/Assets/Placeholders/Cover.jpg"/>
+                    <ImageBrush RenderOptions.BitmapScalingMode="HighQuality" ImageSource="/Assets/Placeholders/Cover2.jpg"/>
                 </Rectangle.Fill>
             </Rectangle>
 
@@ -37,5 +37,6 @@
             <TextBlock FontStretch="UltraCondensed" Text="21°C" Foreground="Black" VerticalAlignment="Center" Margin="20,0,0,50" FontSize="62" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" />
             <TextBlock FontStretch="UltraCondensed" Text="21:35" Foreground="Black" VerticalAlignment="Bottom" Margin="0,0,20,10" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" />
         </Grid>
+
     </Grid>
 </Page>
