@@ -44,14 +44,14 @@ namespace PiMusic
             DoubleAnimation Contract = new DoubleAnimation()
             {
                 To = 340,
-                Duration = TimeSpan.FromSeconds(0.4),
+                Duration = TimeSpan.FromSeconds(0.3),
                 EasingFunction = c
             };
 
             DoubleAnimation Return = new DoubleAnimation()
             {
                 To = 350,
-                Duration = TimeSpan.FromSeconds(0.4),
+                Duration = TimeSpan.FromSeconds(0.3),
                 EasingFunction = c
             };
 
@@ -65,7 +65,7 @@ namespace PiMusic
             MusicBlok.BeginAnimation(Grid.WidthProperty, Contract);
             MusicBlok.BeginAnimation(Grid.HeightProperty, Contract);
 
-            await Task.Delay(250);
+            await Task.Delay(100);
 
             MusicBlok.BeginAnimation(Grid.WidthProperty, Return);
             MusicBlok.BeginAnimation(Grid.HeightProperty, Return);

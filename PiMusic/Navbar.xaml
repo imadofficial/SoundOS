@@ -11,6 +11,8 @@
     <Grid>
         <Grid x:Name="BarBG" Height="4" Width="100" VerticalAlignment="Bottom" Margin="0,0,0,5">
             <Border x:Name="BorderBG" Background="Black" CornerRadius="2" Opacity="0.7"/>
+            <Image RenderOptions.BitmapScalingMode="HighQuality" Name="Back" Width="40" Height="40" Source="/Assets/Icons/Light/Back.png" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="-5,5,0,0"/>
         </Grid>
+        <Button Click="HomePress_Click"  x:Name="HomePress" Opacity="0" IsEnabled="True" Height="15" Width="150" VerticalAlignment="Bottom"/>
     </Grid>
 </Page>

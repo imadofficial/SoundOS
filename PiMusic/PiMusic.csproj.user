@@ -10,6 +10,15 @@
     <Compile Update="Home.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Music\MusicHome.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Music\MusicSplash.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Navbar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Splash.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,6 +31,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Music\MusicHome.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Music\MusicSplash.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Navbar.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Splash.xaml">

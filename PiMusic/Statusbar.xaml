@@ -17,7 +17,7 @@
             <Border x:Name="Signal4" Margin="0,0,10,0" Height="25" Width="6" Background="Black" CornerRadius="2" Opacity="1"/>
 
             <TextBlock x:Name="ConnectionType" Text="WiFi" Margin="-4,0,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
-            <TextBlock x:Name="Time" Text="16:20" Margin="20,0,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
+            <TextBlock x:Name="Time" Text="00:00" Margin="20,0,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">

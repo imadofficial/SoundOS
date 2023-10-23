@@ -46,6 +46,11 @@ namespace PiMusic
             Time.Text = DateTime.Now.ToString("HH:mm");
         }
 
+        public void StatusText(string Title)
+        {
+            CurrentApp.Text = Title;
+        }
+
         public void SwitchColor(int ColorMode) //0 = Zwart, 1 = Wit
         {
             string ColorCode;
@@ -116,6 +121,11 @@ namespace PiMusic
                 Signal3.Opacity = 0.5;
                 Signal4.Opacity = 0.5;
             }
+        }
+
+        public void IcoModify(string Path)
+        {
+            
         }
     }
 }

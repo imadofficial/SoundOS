@@ -38,5 +38,9 @@
             <TextBlock FontStretch="UltraCondensed" Text="21:35" Foreground="Black" VerticalAlignment="Bottom" Margin="0,0,20,10" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" />
         </Grid>
 
+        <Grid x:Name="Instellingen" HorizontalAlignment="Left" Height="80" Width="80" Margin="400,0,0,-160">
+            <Border Background="Gray" CornerRadius="10"/>
+        </Grid>
+
     </Grid>
 </Page>

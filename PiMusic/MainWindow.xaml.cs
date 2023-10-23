@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Windows.Media.Streaming.Adaptive;
 
 namespace PiMusic
 {
@@ -20,11 +21,23 @@ namespace PiMusic
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow Instance;
         public MainWindow()
         {
             InitializeComponent();
+            Instance = this;
             HomeScreen.Content = new Home();
             Statebar.Content = new Statusbar();
+            Navbar.Content = new Navbar();
+        }
+
+        public void ConfirmClosure()
+        {
+            MainContent.Content = null;
+            Navbar.Content = null;
+            Navbar.Content = new Navbar();
+
+            Statusbar.Instance.SwitchColor(0);
         }
     }
 }
