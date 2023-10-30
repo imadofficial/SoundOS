@@ -6,28 +6,47 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.*</FileVersion>
-    <Platforms>AnyCPU;ARM64</Platforms>
+    <FileVersion>1.0.0</FileVersion>
+    <Platforms>AnyCPU;ARM64;x64</Platforms>
     <SupportedOSPlatformVersion>10.0.18362.0</SupportedOSPlatformVersion>
     <UseWindowsForms>False</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Assets\Icons\Airplay.png" />
+    <None Remove="Assets\Icons\Dark\Pause.png" />
     <None Remove="Assets\Icons\Home.png" />
     <None Remove="Assets\Icons\Light\AppleMusic.png" />
     <None Remove="Assets\Icons\Light\Back.png" />
+    <None Remove="Assets\Icons\Light\Pause.png" />
+    <None Remove="Assets\Icons\Light\Play.png" />
     <None Remove="Assets\Icons\SD-Card.png" />
     <None Remove="Assets\Latin\Default.otf" />
     <None Remove="Assets\Placeholders\Cover.jpg" />
     <None Remove="Assets\Placeholders\Cover2.jpg" />
+    <None Remove="Assets\Placeholders\Cover3.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Icons\Light\Play.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Icons\Dark\Pause.png" />
+    <Resource Include="Assets\Icons\Light\Pause.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Placeholders\Cover3.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
     <PackageReference Include="ManagedNativeWifi" Version="2.5.0" />
     <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="System.Management" Version="7.0.2" />
+    <PackageReference Include="TagLibSharp" Version="2.3.0" />
   </ItemGroup>
 
   <ItemGroup>

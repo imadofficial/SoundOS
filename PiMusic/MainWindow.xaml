@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PiMusic"
         mc:Ignorable="d"
-        Title="Imad's Music Player (v1.0.0.84)" Height="480" Width="800">
+        Title="Imad's Music Player (v1.0)" Height="480" Width="800">
     <Grid>
         <Frame x:Name="HomeScreen" NavigationUIVisibility="Hidden"/>
         <Frame x:Name="MainContent" NavigationUIVisibility="Hidden"/>

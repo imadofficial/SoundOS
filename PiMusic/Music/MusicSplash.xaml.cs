@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,6 +16,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 using Windows.ApplicationModel.Store;
 
 namespace PiMusic.Music
@@ -23,9 +26,13 @@ namespace PiMusic.Music
     /// </summary>
     public partial class MusicSplash : Page
     {
+        public List<string> filePaths = new List<string>();
+        public static MusicSplash Instance;
+
         public MusicSplash()
         {
             InitializeComponent();
+            Instance = this;
             Init();
         }
 
@@ -64,6 +71,8 @@ namespace PiMusic.Music
         private async Task CheckDirsAsync() //Zoekt naar .mp3 bestanden op de schijf
         {
             DriveInfo[] allDrives = DriveInfo.GetDrives();
+            
+
             foreach (DriveInfo d in allDrives)
             {
                 string dirPath = d.Name;
@@ -77,18 +86,32 @@ namespace PiMusic.Music
                         string[] files = await Task.Run(() => System.IO.Directory.GetFiles(dirPath, "*.mp3", System.IO.SearchOption.AllDirectories));
                         foreach (string file in files)
                         {
+                            filePaths.Add(file);
                             Status.Text = "Opslagmedia controleren (" + file + ")";
                             FilesFound = FilesFound + 1;
                             Aantal.Text = FilesFound + " Bestanden gevonden";
                         }
                     }
-                    
                 }
                 catch (Exception)
                 {
                     continue;
                 }
+            
             }
+            string json = JsonConvert.SerializeObject(filePaths, Newtonsoft.Json.Formatting.Indented);
+            string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string configDirectory = System.IO.Path.Combine(exeDirectory, "Config");
+
+            if (!Directory.Exists(configDirectory))
+            {
+                Directory.CreateDirectory(configDirectory);
+            }
+
+            string filePath = System.IO.Path.Combine(configDirectory, "SongIndex.json");
+            File.WriteAllText(filePath, json);
+
+
             await Task.Delay(300);
 
             FinishHandler();

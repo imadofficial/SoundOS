@@ -23,6 +23,8 @@ namespace PiMusic
     /// </summary>
     public partial class Home : Page
     {
+
+        
         public Home()
         {
             InitializeComponent();

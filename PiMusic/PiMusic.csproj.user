@@ -10,6 +10,9 @@
     <Compile Update="Home.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Music\MusicBackground.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Music\MusicHome.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -31,6 +34,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Music\MusicBackground.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Music\MusicHome.xaml">

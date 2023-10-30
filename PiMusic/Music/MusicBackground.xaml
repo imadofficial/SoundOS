@@ -1,0 +1,18 @@
+﻿<Page x:Class="PiMusic.Music.MusicBackground"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PiMusic.Music"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MusicBackground">
+
+    <Grid>
+        <Image Opacity="0.8" Stretch="Fill" Margin="-30,-150,-30,-150" Source="/Assets/Placeholders/Cover.jpg">
+            <Image.Effect>
+                <BlurEffect Radius="50" />
+            </Image.Effect>
+        </Image>
+    </Grid>
+</Page>

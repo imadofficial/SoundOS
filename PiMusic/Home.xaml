@@ -31,14 +31,14 @@
             <Button x:Name="Musicbox"  Opacity="0" Click="Musicbox_Click"/>
         </Grid>
 
-        <Grid x:Name="WeerBlok" HorizontalAlignment="Left" Height="180" Width="250" Margin="400,0,0,120">
+        <Grid x:Name="WeerBlok" HorizontalAlignment="Center" Height="180" Width="250" Margin="270,0,0,120">
             <Border Background="LightBlue" CornerRadius="15"/>
             <TextBlock FontStretch="UltraCondensed" Text="Laken" Width="210" Foreground="Black" Margin="20,10,0,0" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
             <TextBlock FontStretch="UltraCondensed" Text="21°C" Foreground="Black" VerticalAlignment="Center" Margin="20,0,0,50" FontSize="62" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" />
             <TextBlock FontStretch="UltraCondensed" Text="21:35" Foreground="Black" VerticalAlignment="Bottom" Margin="0,0,20,10" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" />
         </Grid>
 
-        <Grid x:Name="Instellingen" HorizontalAlignment="Left" Height="80" Width="80" Margin="400,0,0,-160">
+        <Grid x:Name="Instellingen" HorizontalAlignment="Center" Height="80" Width="80" Margin="100,0,0,-170">
             <Border Background="Gray" CornerRadius="10"/>
         </Grid>
 

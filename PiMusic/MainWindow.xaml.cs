@@ -33,11 +33,25 @@ namespace PiMusic
 
         public void ConfirmClosure()
         {
+            // Dispose of the content if it's disposable
+            if (MainContent.Content is IDisposable disposableContent)
+            {
+                disposableContent.Dispose();
+            }
+
             MainContent.Content = null;
+
+            // Dispose of the content if it's disposable
+            if (Navbar.Content is IDisposable disposableNavbar)
+            {
+                disposableNavbar.Dispose();
+            }
+
             Navbar.Content = null;
             Navbar.Content = new Navbar();
 
             Statusbar.Instance.SwitchColor(0);
         }
+  
     }
 }

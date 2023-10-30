@@ -9,29 +9,43 @@
       Title="MusicHome">
 
     <Grid x:Name="MainContent" Background="Black">
+        <Frame x:Name="CoverBlurBG" />
+
+        <TextBlock Opacity="0" x:Name="NoResults" Foreground="White" Text="Geen liedjes gevonden. Voeg er toe via een SD-Kaart of USB." Margin="0,0,0,0" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+        <ScrollViewer x:Name="SongSelection" VerticalScrollBarVisibility="Hidden" Margin="0,0,0,75" PanningMode="Both">
+        </ScrollViewer>
+
+        <Rectangle Height="90" Margin="0,0,0,0" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop x:Name="GradientTop"  Color="#000000" Offset="0.1" />
+                    <GradientStop x:Name="GradientBottom" Color="Transparent" Offset="0.7" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
         <TextBlock x:Name="LocalFiles" Foreground="White" Text="Schijf" Margin="40,14,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <TextBlock x:Name="OnlineRadio" Foreground="White" Text="Radio" Margin="140,14,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Border Background="White" CornerRadius="2" Height="3" Width="25" Margin="65,52,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="1"/>
 
-        <TextBlock Opacity="0" x:Name="NoResults" Foreground="White" Text="Geen liedjes gevonden. Voeg er toe via een SD-Kaart of USB." Margin="0,0,0,0" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Center" />
-
-        <Grid x:Name="Song" Height="50" VerticalAlignment="Top" Margin="30,80,30,0">
-            <Border Background="#E9A54B" CornerRadius="20" Opacity="0.7"/>
-            <TextBlock x:Name="Title" Text="Fractured Angel" Foreground="White" Margin="30,0,0,11" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
-        </Grid>
-
         <Grid x:Name="Bar" Margin="0,0,0,-25">
             <Border Background="Gray" CornerRadius="30" Height="100" VerticalAlignment="Bottom" Opacity="1"/>
 
-            <Rectangle VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="CoverArt" Margin="50,0,0,40" RadiusX="10" RadiusY="10" Width="50" Height="50">
+            <Rectangle VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="CoverArt" Margin="50,0,0,32" RadiusX="10" RadiusY="10" Width="60" Height="60">
                 <Rectangle.Fill>
                     <ImageBrush RenderOptions.BitmapScalingMode="HighQuality" ImageSource="/Assets/Placeholders/Cover2.jpg"/>
                 </Rectangle.Fill>
             </Rectangle>
 
-            <TextBlock x:Name="SongTitle" FontStretch="UltraCondensed" Text="Belle de Nuit" Foreground="White" Margin="110,0,0,62" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
-            <TextBlock x:Name="SongArtist" FontStretch="UltraCondensed" Text="黒皇帝 feat. AKA" Foreground="White" Margin="110,0,0,40" FontSize="20" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+            <TextBlock x:Name="MusicTitle" FontStretch="UltraCondensed" Text="Selecteer een liedje om af te spelen." Foreground="White" Margin="125,0,0,50" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+            <TextBlock Opacity="0" x:Name="MusicArtist" FontStretch="UltraCondensed" Text="" Foreground="White" Margin="125,0,0,40" FontSize="20" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
 
+            <Grid x:Name="PauseButton">
+                <Image Opacity="0" x:Name="PausePic" RenderOptions.BitmapScalingMode="HighQuality" Source="/Assets/Icons/Light/Pause.png" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,50,45"/>
+                <Border x:Name="PauseBGEffect" Width="60" Height="40" Opacity="0" Background="White" CornerRadius="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,37,43"/>
+                <Button Click="PauseClick" Width="60" Height="40" Opacity="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,37,43" />
+            </Grid>
         </Grid>
     </Grid>
 </Page>

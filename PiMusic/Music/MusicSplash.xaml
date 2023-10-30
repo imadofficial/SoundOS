@@ -15,14 +15,14 @@
         <Grid x:Name="Bar" Margin="0,0,0,-100">
             <Border Background="Gray" CornerRadius="30" Height="100" VerticalAlignment="Bottom" Opacity="1"/>
 
-            <Rectangle VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="CoverArt" Margin="50,0,0,40" RadiusX="10" RadiusY="10" Width="50" Height="50">
+            <Rectangle VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="CoverArt" Margin="50,0,0,32" RadiusX="10" RadiusY="10" Width="60" Height="60">
                 <Rectangle.Fill>
                     <ImageBrush RenderOptions.BitmapScalingMode="HighQuality" ImageSource="/Assets/Placeholders/Cover2.jpg"/>
                 </Rectangle.Fill>
             </Rectangle>
-            
-            <TextBlock x:Name="SongTitle" FontStretch="UltraCondensed" Text="Belle de Nuit" Foreground="White" Margin="110,0,0,62" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
-            <TextBlock x:Name="SongArtist" FontStretch="UltraCondensed" Text="黒皇帝 feat. AKA" Foreground="White" Margin="110,0,0,40" FontSize="20" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+
+            <TextBlock x:Name="MusicTitle" FontStretch="UltraCondensed" Text="Selecteer een liedje om af te spelen." Foreground="White" Margin="125,0,0,50" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+            <TextBlock Opacity="0" x:Name="MusicArtist" FontStretch="UltraCondensed" Text="" Foreground="White" Margin="125,0,0,40" FontSize="20" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
 
         </Grid>
     </Grid>
