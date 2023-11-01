@@ -26,7 +26,7 @@
         </Rectangle>
 
         <TextBlock x:Name="LocalFiles" Foreground="White" Text="Schijf" Margin="40,14,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <TextBlock x:Name="OnlineRadio" Foreground="White" Text="Radio" Margin="140,14,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <TextBlock Opacity="0" x:Name="OnlineRadio" Foreground="White" Text="Radio" Margin="140,14,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Border Background="White" CornerRadius="2" Height="3" Width="25" Margin="65,52,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="1"/>
 
         <Grid x:Name="Bar" Margin="0,0,0,-25">
@@ -34,12 +34,12 @@
 
             <Rectangle VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="CoverArt" Margin="50,0,0,32" RadiusX="10" RadiusY="10" Width="60" Height="60">
                 <Rectangle.Fill>
-                    <ImageBrush RenderOptions.BitmapScalingMode="HighQuality" ImageSource="/Assets/Placeholders/Cover2.jpg"/>
+                    <ImageBrush x:Name="CoverArtStraightSource" RenderOptions.BitmapScalingMode="HighQuality" ImageSource="/Assets/Placeholders/Cover2.jpg"/>
                 </Rectangle.Fill>
             </Rectangle>
 
-            <TextBlock x:Name="MusicTitle" FontStretch="UltraCondensed" Text="Selecteer een liedje om af te spelen." Foreground="White" Margin="125,0,0,50" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
-            <TextBlock Opacity="0" x:Name="MusicArtist" FontStretch="UltraCondensed" Text="" Foreground="White" Margin="125,0,0,40" FontSize="20" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+            <TextBlock x:Name="MusicTitle" FontStretch="UltraCondensed" Text="Selecteer een liedje om af te spelen." Foreground="White" Margin="125,0,0,47" FontSize="28" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+            <TextBlock Opacity="0" x:Name="MusicArtist" FontStretch="UltraCondensed" Text="" Foreground="White" Margin="125,0,0,40" FontSize="16" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
 
             <Grid x:Name="PauseButton">
                 <Image Opacity="0" x:Name="PausePic" RenderOptions.BitmapScalingMode="HighQuality" Source="/Assets/Icons/Light/Pause.png" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,50,45"/>

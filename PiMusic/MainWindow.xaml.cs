@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Windows.Media.Streaming.Adaptive;
 
 namespace PiMusic
 {
@@ -51,6 +50,8 @@ namespace PiMusic
             Navbar.Content = new Navbar();
 
             Statusbar.Instance.SwitchColor(0);
+
+            Statusbar.Instance.CurrentApp.Text = "Thuis Scherm";
         }
   
     }

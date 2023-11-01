@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Formats.Tar;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
-using Windows.ApplicationModel.Store;
 
 namespace PiMusic.Music
 {
@@ -34,6 +34,38 @@ namespace PiMusic.Music
             InitializeComponent();
             Instance = this;
             Init();
+            UpdateBar();
+        }
+
+        private async void UpdateBar()
+        {
+            QuinticEase c = new QuinticEase();
+            c.EasingMode = EasingMode.EaseInOut;
+
+            ThicknessAnimation PosCorrect = new ThicknessAnimation()
+            {
+                To = new Thickness(125, 0, 0, 58),
+                Duration = TimeSpan.FromSeconds(1),
+                EasingFunction = c
+            };
+
+            DoubleAnimation Appear = new DoubleAnimation()
+            {
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5)
+            };
+
+            if (MusicHandler.IsPlaying == true)
+            {
+                MusicTitle.Text = MusicHandler.MusicMetadata.Title;
+                MusicArtist.Text = MusicHandler.MusicMetadata.Artist;
+
+                MusicTitle.BeginAnimation(TextBlock.MarginProperty, PosCorrect);
+                await Task.Delay(500);
+                MusicArtist.BeginAnimation(TextBlock.OpacityProperty, Appear);
+
+                Cover.ImageSource = MusicHandler.MusicMetadata.Cover;
+            }
         }
 
         private async void Init()
@@ -137,16 +169,6 @@ namespace PiMusic.Music
             await Task.Delay(400);
 
             MainWindow.Instance.MainContent.Content = new MusicHome();
-        }
-
-        private void Transition()
-        {
-            DoubleAnimation Dissapear = new DoubleAnimation()
-            {
-                From = 1,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.4)
-            };
         }
     }
 }

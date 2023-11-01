@@ -37,9 +37,25 @@ namespace PiMusic.Music
         {
             InitializeComponent();
             Instance = this;
+            StatusCheck();
             MusicLibPrep();
 
             CoverBlurBG.Content = new MusicBackground();
+        }
+
+        public async void StatusCheck()
+        {
+            if(MusicHandler.IsPlaying == true)
+            {
+                MusicTitle.Text = MusicHandler.MusicMetadata.Title;
+                MusicArtist.Text = MusicHandler.MusicMetadata.Artist;
+
+                MusicTitle.Margin = new Thickness(125, 0, 0, 58);
+                await Task.Delay(500);
+                MusicArtist.Opacity = 1;
+
+                CoverArtStraightSource.ImageSource = MusicHandler.MusicMetadata.Cover;
+            }
         }
 
         public async Task MusicLibPrep()
@@ -64,7 +80,7 @@ namespace PiMusic.Music
 
                 if (Position == 1)
                 {
-                    Pos1 = 100;
+                    Pos1 = 70;
                     Position = 0;
                 }
                 else
@@ -156,7 +172,7 @@ namespace PiMusic.Music
 
             ThicknessAnimation PosCorrect = new ThicknessAnimation()
             {
-                To = new Thickness(125, 0, 0, 62),
+                To = new Thickness(125, 0, 0, 58),
                 Duration = TimeSpan.FromSeconds(1),
                 EasingFunction = c
             };
@@ -193,8 +209,19 @@ namespace PiMusic.Music
                 // Assuming you're in the same class where CoverArt is defined
                 ImageBrush brush = (ImageBrush)CoverArt.Fill;
                 brush.ImageSource = albumCover;
+
+                ImageBrush brush2 = (ImageBrush)Home.Instance.CoverArt.Fill;
+                brush2.ImageSource = albumCover;
             }
+
+            Home.Instance.SongTitle.Text = tagFile.Tag.Title;
+            Home.Instance.SongArtist.Text = tagFile.Tag.FirstPerformer;
             PausePic.Opacity = 1;
+
+            TimeSpan duration = tagFile.Properties.Duration;
+            Home.Instance.EndTime.Text = duration.ToString(@"m\:ss");
+
+            Home.Instance.UnhideMusicWidget();
         }
 
 

@@ -14,7 +14,6 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Windows.Devices.Geolocation;
 
 namespace PiMusic
 {
@@ -23,16 +22,26 @@ namespace PiMusic
     /// </summary>
     public partial class Home : Page
     {
-
+        public static Home Instance;
         
         public Home()
         {
             InitializeComponent();
+            Instance = this;
         }
 
         private void Musicbox_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        public void UnhideMusicWidget()
+        {
+            Instructions.Opacity = 0;
+            SongTitle.Opacity = 1;
+            SongArtist.Opacity = 1;
+            CoverArt.Opacity = 1;
+            PlayerControls.Opacity = 1;
         }
 
         private async void Musicbox_Click(object sender, RoutedEventArgs e)
