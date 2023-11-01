@@ -1,4 +1,4 @@
-# PiSoundPlayer
+# PiSoundOS
 The Windows-built music player made for the Raspberry Pi 4B+, Optimized for Windows 11 for ARM.
 
 **Latest builds**
@@ -7,4 +7,4 @@ The Windows-built music player made for the Raspberry Pi 4B+, Optimized for Wind
 | ------------- | ------------- |
 
 ## What are the features?
-As of right now (7 October, 2023) it does absolutely nothing
+- Play your favorite songs off of an external media!
