@@ -46,6 +46,36 @@ namespace PiMusic
             Time.Text = DateTime.Now.ToString("HH:mm");
         }
 
+        public async void RemoveStatus()
+        {
+            DoubleAnimation Dissapear = new DoubleAnimation()
+            {
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25)
+            };
+            Icon.BeginAnimation(Image.OpacityProperty, Dissapear);
+
+            await Task.Delay(250);
+
+            CurrentApp.Text = string.Empty;
+            Icon.Margin = new Thickness(-40, 15, 0, 0);
+        }
+
+        public async void AppearStatus()
+        {
+            CurrentApp.Text = "Thuis Scherm";
+            Icon.Margin = new Thickness(40, 15, 0, 0);
+
+            DoubleAnimation Dissapear = new DoubleAnimation()
+            {
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.25)
+            };
+
+            Icon.BeginAnimation(Image.OpacityProperty, Dissapear);
+            await Task.Delay(250);
+        }
+
         public void StatusText(string Title)
         {
             CurrentApp.Text = Title;

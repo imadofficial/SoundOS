@@ -5,16 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PiMusic.Music"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="800" x:Name="MusicApp"
       Title="MusicHome">
 
     <Grid x:Name="MainContent" Background="Black">
         <Frame x:Name="CoverBlurBG" />
-
-        <TextBlock Opacity="0" x:Name="NoResults" Foreground="White" Text="Geen liedjes gevonden. Voeg er toe via een SD-Kaart of USB." Margin="0,0,0,0" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Center" />
-
-        <ScrollViewer x:Name="SongSelection" VerticalScrollBarVisibility="Hidden" Margin="0,0,0,75" PanningMode="Both">
-        </ScrollViewer>
+        <Frame x:Name="MusicContent" NavigationUIVisibility="Hidden" />
 
         <Rectangle Height="90" Margin="0,0,0,0" VerticalAlignment="Top">
             <Rectangle.Fill>
@@ -25,18 +21,36 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <TextBlock x:Name="LocalFiles" Foreground="White" Text="Schijf" Margin="40,14,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <TextBlock Opacity="0" x:Name="LocalFiles" Foreground="White" Text="Schijf" Margin="40,14,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Button x:Name="LocalButton" Click="LocalButton_Click"  Opacity="0" Width="85" Height="40" Margin="36,14,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock Opacity="0" x:Name="OnlineRadio" Foreground="White" Text="Radio" Margin="140,14,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <Border Background="White" CornerRadius="2" Height="3" Width="25" Margin="65,52,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="1"/>
+        <Button x:Name="RadioButton" Click="RadioButton_Click"  Opacity="0" Width="85" Height="40" Margin="136,14,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock Opacity="0" x:Name="BETA" Foreground="White" Text="BETA" Margin="220,14,0,0" FontSize="11" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
 
-        <Grid x:Name="Bar" Margin="0,0,0,-25">
-            <Border Background="Gray" CornerRadius="30" Height="100" VerticalAlignment="Bottom" Opacity="1"/>
+        <Border x:Name="AppletIndicator" Background="White" CornerRadius="2" Height="3" Width="25" Margin="65,52,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="1"/>
 
-            <Rectangle VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="CoverArt" Margin="50,0,0,32" RadiusX="10" RadiusY="10" Width="60" Height="60">
+        <Grid x:Name="Bar" Height="100" VerticalAlignment="Bottom" Margin="0,0,0,-25">
+            <Border x:Name="BarBG" Background="Gray" CornerRadius="30" Opacity="1"/>
+
+            <Rectangle Opacity="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="CoverArt" Margin="50,0,0,32" RadiusX="10" RadiusY="10" Width="60" Height="60">
                 <Rectangle.Fill>
                     <ImageBrush x:Name="CoverArtStraightSource" RenderOptions.BitmapScalingMode="HighQuality" ImageSource="/Assets/Placeholders/Cover2.jpg"/>
                 </Rectangle.Fill>
             </Rectangle>
+
+            <Viewbox Opacity="0" Margin="0,0,0,30" Height="60" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                <Polygon Margin="50,0,0,0">
+                    <Polygon.Fill>
+                        <ImageBrush ImageSource="/Assets/Placeholders/DESTRUCTION_321.jpg"/>
+                    </Polygon.Fill>
+                    <Polygon.Points>
+                        <Point X="0" Y="0" />
+                        <Point X="190" Y="0" />
+                        <Point X="140" Y="120" />
+                        <Point X="-40" Y="120" />
+                    </Polygon.Points>
+                </Polygon>
+            </Viewbox>
 
             <TextBlock x:Name="MusicTitle" FontStretch="UltraCondensed" Text="Selecteer een liedje om af te spelen." Foreground="White" Margin="125,0,0,47" FontSize="28" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
             <TextBlock Opacity="0" x:Name="MusicArtist" FontStretch="UltraCondensed" Text="" Foreground="White" Margin="125,0,0,40" FontSize="16" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
@@ -46,6 +60,9 @@
                 <Border x:Name="PauseBGEffect" Width="60" Height="40" Opacity="0" Background="White" CornerRadius="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,37,43"/>
                 <Button Click="PauseClick" Width="60" Height="40" Opacity="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,37,43" />
             </Grid>
+
+            <Button x:Name="BarExpand" Click="BarExpand_Click" Height="100" VerticalAlignment="Bottom" Opacity="0" HorizontalAlignment="Left" Width="680" />
         </Grid>
+
     </Grid>
 </Page>

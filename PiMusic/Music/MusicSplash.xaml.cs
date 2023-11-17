@@ -164,7 +164,7 @@ namespace PiMusic.Music
             MusicIcon.BeginAnimation(Image.OpacityProperty, Dissapear);
 
             Statusbar.Instance.CurrentApp.BeginAnimation(TextBlock.OpacityProperty, Dissapear);
-            Statusbar.Instance.Lossless.BeginAnimation(Image.OpacityProperty, Dissapear);
+            Statusbar.Instance.Icon.BeginAnimation(Image.OpacityProperty, Dissapear);
 
             await Task.Delay(400);
 

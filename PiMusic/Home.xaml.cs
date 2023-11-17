@@ -30,6 +30,38 @@ namespace PiMusic
             Instance = this;
         }
 
+        public void SetMusicWidget(String Title, String Artist, bool Live, BitmapImage Cover, TimeSpan? SongSpan = null)
+        {
+            if (Live == true)
+            {
+                CoverSource.ImageSource = Cover;
+                CurrentTime.Opacity = 0;
+                EndTime.Opacity = 0;
+                BackgroundBar.Opacity = 0;
+                LiveLbl.Opacity = 1;
+            }
+            else
+            {
+                CurrentTime.Opacity = 1;
+                EndTime.Opacity = 1;
+                BackgroundBar.Opacity = 1;
+                LiveLbl.Opacity = 0;
+
+                EndTime.Text = SongSpan.ToString();
+            }
+
+            Instructions.Opacity = 0;
+            SongTitle.Opacity = 1;
+            SongArtist.Opacity = 1;
+            CoverArt.Opacity = 1;
+            Play.Opacity = 1;
+            PlayingStat.Opacity = 1;
+
+            SongTitle.Text = Title;
+            SongArtist.Text = Artist;
+            CoverSource.ImageSource = Cover;
+        }
+
         private void Musicbox_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
@@ -82,9 +114,46 @@ namespace PiMusic
             MusicBlok.BeginAnimation(Grid.HeightProperty, Return);
 
             MainWindow.Instance.MainContent.Content = new MusicSplash(); //Muziek App Openen
-            Statusbar.Instance.StatusText("Muziek");
-            Statusbar.Instance.SwitchColor(1);
 
+            Statusbar.Instance.RemoveStatus();
+            Statusbar.Instance.SwitchColor(1);
+        }
+
+        private void Pause_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EnterSettings_Click(object sender, RoutedEventArgs e)
+        {
+            QuinticEase c = new QuinticEase();
+            c.EasingMode = EasingMode.EaseOut;
+
+            DoubleAnimation ExpandBox = new DoubleAnimation()
+            {
+                To = HomeScreen.ActualWidth,
+                Duration = TimeSpan.FromSeconds(1),
+                EasingFunction = c
+            };
+
+            DoubleAnimation DissapearLogo = new DoubleAnimation()
+            {
+                To = 0,
+                Duration = TimeSpan.FromSeconds(1),
+                EasingFunction = c
+            };
+
+            ThicknessAnimation CorrectPos = new ThicknessAnimation()
+            {
+                To = new Thickness (0),
+                Duration = TimeSpan.FromSeconds(1),
+                EasingFunction = c
+            };
+
+            Instellingen.BeginAnimation(Grid.HeightProperty, ExpandBox);
+            Instellingen.BeginAnimation(Grid.WidthProperty, ExpandBox);
+            Instellingen.BeginAnimation(Grid.MarginProperty, CorrectPos);
+            SettingsIcon.BeginAnimation(Image.OpacityProperty, DissapearLogo);
         }
     }
 }

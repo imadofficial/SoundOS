@@ -11,6 +11,10 @@ using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
+using System.Net;
+using System.Security.Policy;
+using System.Net.Http;
+using TagLib.Flac;
 
 namespace PiMusic
 {
@@ -18,6 +22,7 @@ namespace PiMusic
     {
         private static WaveOut waveOut;
         public static bool IsPlaying;
+        public static bool IsPlayingRadio;
         public static String CurrentPath = "";
 
         public static class MusicMetadata
@@ -26,6 +31,13 @@ namespace PiMusic
             public static String Artist = "";
 
             public static BitmapImage Cover;
+
+            public static void Apply() //AppliesMetadata on all fronts
+            {
+                Home.Instance.SetMusicWidget(Title, Artist, IsPlayingRadio, Cover);
+                MusicHome.Instance.StatusCheck();
+                MusicBackground.Instance.CoverImage.Source = Cover;
+            }
         }
 
         public static void CollectMetadata(string Path)
@@ -46,6 +58,26 @@ namespace PiMusic
 
                 MusicMetadata.Cover = albumCover;
             }
+
+            MusicMetadata.Apply();
+        }
+
+
+        public static void StartRadioPayload(String RadioName, String RadioCompany, String URL)
+        {
+            StopMusic();
+
+            MusicMetadata.Artist = RadioCompany;
+            MusicMetadata.Title = RadioName;
+
+            using (var mediaStream = new MediaFoundationReader(URL))
+            {
+                waveOut = new WaveOut();
+                waveOut.Init(mediaStream);
+                waveOut.Play();
+                IsPlayingRadio = true;
+                IsPlaying = true;
+            }
         }
 
         public static void StartMusic(string Path)
@@ -63,7 +95,7 @@ namespace PiMusic
             CollectMetadata(Path);
         }
 
-        public static void PauseMusic() //0 = Playing, 1 = Paused
+        public static void PauseMusic()
         {
             waveOut.Pause();
             IsPlaying = false;

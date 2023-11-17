@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TagLib.Id3v2;
 
 namespace PiMusic
 {
@@ -39,6 +40,7 @@ namespace PiMusic
             }
 
             MainContent.Content = null;
+            MainContent.NavigationService.RemoveBackEntry();
 
             // Dispose of the content if it's disposable
             if (Navbar.Content is IDisposable disposableNavbar)
@@ -51,7 +53,7 @@ namespace PiMusic
 
             Statusbar.Instance.SwitchColor(0);
 
-            Statusbar.Instance.CurrentApp.Text = "Thuis Scherm";
+            Statusbar.Instance.AppearStatus();
         }
   
     }

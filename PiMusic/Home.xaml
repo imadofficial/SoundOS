@@ -6,12 +6,16 @@
       xmlns:local="clr-namespace:PiMusic"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      x:Name="HomeScreen"
       Title="Home">
 
     <Grid>
+        <Grid.LayoutTransform>
+            <ScaleTransform ScaleX="1" ScaleY="1" />
+        </Grid.LayoutTransform>
+        
         <Grid x:Name="MusicBlok" Height="350" Width="350" HorizontalAlignment="Center" Margin="-370,50,0,0">
             <Border x:Name="MusicBlokBG" Opacity="0.5" Background="#394342" CornerRadius="20"/>
-            <Image x:Name="Play" RenderOptions.BitmapScalingMode="HighQuality" Width="40" Height="40" Source="Assets/Icons/Dark/Play.png" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
             
             <TextBlock Opacity="1" x:Name="Instructions" FontStretch="UltraCondensed" Text="Open de Muziek app om de controls te zien." TextWrapping="Wrap" Foreground="Black" Margin="20,10,20,0" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
@@ -20,17 +24,22 @@
 
             <Rectangle Opacity="0.2" x:Name="CoverArt" Margin="0,0,0,20" RadiusX="10" RadiusY="10" Width="200" Height="200">
                 <Rectangle.Fill>
-                    <ImageBrush RenderOptions.BitmapScalingMode="HighQuality" ImageSource="/Assets/Placeholders/Cover2.jpg"/>
+                    <ImageBrush x:Name="CoverSource" RenderOptions.BitmapScalingMode="HighQuality" ImageSource="/Assets/Placeholders/Cover2.jpg"/>
                 </Rectangle.Fill>
             </Rectangle>
 
             <Grid x:Name="PlayerControls" Opacity="0.2">
                 <TextBlock x:Name="CurrentTime" Text="0:02" Foreground="Black" Margin="25,0,25,50" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
                 <TextBlock x:Name="EndTime" Text="2:48" Foreground="Black" Margin="25,0,25,50" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
-                <TextBlock Opacity="0" Text="Live" Foreground="Black" Margin="25,0,25,50" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+                <TextBlock x:Name="LiveLbl" Opacity="0" Text="Live" Foreground="Black" Margin="25,0,25,50" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
                 <Border Margin="0,224,0,0" HorizontalAlignment="Center" x:Name="BackgroundBar" Width="180" Height="8" Background="#C0C0C0" CornerRadius="4"/>
             </Grid>
+            <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
+                <Image Opacity="0.2" x:Name="Play" RenderOptions.BitmapScalingMode="HighQuality" Width="40" Height="40" Source="Assets/Icons/Dark/Play.png" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
+                <TextBlock Opacity="0.2" x:Name="PlayingStat" FontStretch="UltraCondensed" Text="Afspelen" Foreground="Black" Margin="0,0,0,15" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+            </StackPanel>
             <Button x:Name="Musicbox"  Opacity="0" Click="Musicbox_Click"/>
+            <Button x:Name="Pause" Click="Pause_Click" Opacity="0" IsEnabled="False" VerticalAlignment="Bottom" Height="40"/>
         </Grid>
 
         <Grid Opacity="0" x:Name="WeerBlok" HorizontalAlignment="Center" Height="180" Width="250" Margin="270,0,0,120">
@@ -40,8 +49,10 @@
             <TextBlock FontStretch="UltraCondensed" Text="21:35" Foreground="Black" VerticalAlignment="Bottom" Margin="0,0,20,10" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" />
         </Grid>
 
-        <Grid Opacity="0" x:Name="Instellingen" HorizontalAlignment="Center" Height="80" Width="80" Margin="100,0,0,-170">
-            <Border Background="Gray" CornerRadius="10"/>
+        <Grid Opacity="1" x:Name="Instellingen" HorizontalAlignment="Center" Height="80" Width="80" Margin="100,0,0,-170">
+            <Border Background="Black" CornerRadius="10"/>
+            <Image x:Name="SettingsIcon" Opacity="1" RenderOptions.BitmapScalingMode="HighQuality" Source="Assets/Icons/Light/Settings.png" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,10,10,10"/>
+            <Button x:Name="EnterSettings" Opacity="0" Click="EnterSettings_Click"/>
         </Grid>
 
     </Grid>

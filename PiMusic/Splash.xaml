@@ -6,10 +6,11 @@
       xmlns:local="clr-namespace:PiMusic"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Splash">
+      Title="Splash"
+      xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
 
-    <Grid>
-        <TextBlock Text="Imad's" Margin="0,-50,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <TextBlock Text="PiPlayer" Margin="0,40,0,0" FontSize="48" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Center" />
+    <Grid Background="Black">
+        <mah:ProgressRing Foreground="White" IsActive="True" Margin="0,150,0,0" Height="50" Width="50"/>
+        <TextBlock Text="SoundOS" Foreground="White" Margin="0,-100,0,0" FontSize="48" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Center" />
     </Grid>
 </Page>

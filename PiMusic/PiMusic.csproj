@@ -14,25 +14,32 @@
   <ItemGroup>
     <None Remove="Assets\Icons\Airplay.png" />
     <None Remove="Assets\Icons\Dark\Pause.png" />
+    <None Remove="Assets\Icons\Dark\Play.png" />
+    <None Remove="Assets\Icons\Dark\Settings.png" />
     <None Remove="Assets\Icons\Home.png" />
     <None Remove="Assets\Icons\Light\AppleMusic.png" />
     <None Remove="Assets\Icons\Light\Back.png" />
     <None Remove="Assets\Icons\Light\Pause.png" />
     <None Remove="Assets\Icons\Light\Play.png" />
+    <None Remove="Assets\Icons\Light\Settings.png" />
     <None Remove="Assets\Icons\SD-Card.png" />
     <None Remove="Assets\Latin\Default.otf" />
     <None Remove="Assets\Placeholders\Cover.jpg" />
     <None Remove="Assets\Placeholders\Cover2.jpg" />
     <None Remove="Assets\Placeholders\Cover3.jpg" />
+    <None Remove="Assets\Placeholders\DESTRUCTION_321.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\Icons\Dark\Play.png" />
+    <Resource Include="Assets\Icons\Dark\Settings.png" />
     <Resource Include="Assets\Icons\Light\Play.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Assets\Icons\Dark\Pause.png" />
     <Resource Include="Assets\Icons\Light\Pause.png" />
+    <Resource Include="Assets\Icons\Light\Settings.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -57,10 +64,15 @@
     <Resource Include="Assets\Latin\Default.otf" />
     <Resource Include="Assets\Placeholders\Cover.jpg" />
     <Resource Include="Assets\Placeholders\Cover2.jpg" />
+    <Resource Include="Assets\Placeholders\DESTRUCTION_321.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Apps\Settings\" />
   </ItemGroup>
 
 </Project>

@@ -37,135 +37,41 @@ namespace PiMusic.Music
         {
             InitializeComponent();
             Instance = this;
+            Animations();
             StatusCheck();
-            MusicLibPrep();
 
             CoverBlurBG.Content = new MusicBackground();
+            MusicContent.Content = new MusicLocal();
         }
 
-        public async void StatusCheck()
+        private async void Animations()
         {
-            if(MusicHandler.IsPlaying == true)
+            QuinticEase c = new QuinticEase();
+            c.EasingMode = EasingMode.EaseIn;
+
+            DoubleAnimation Appear = new DoubleAnimation()
             {
-                MusicTitle.Text = MusicHandler.MusicMetadata.Title;
-                MusicArtist.Text = MusicHandler.MusicMetadata.Artist;
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.4)
+            };
 
-                MusicTitle.Margin = new Thickness(125, 0, 0, 58);
-                await Task.Delay(500);
-                MusicArtist.Opacity = 1;
+            LocalFiles.BeginAnimation(TextBlock.OpacityProperty, Appear);
+            await Task.Delay(100);
+            OnlineRadio.BeginAnimation(TextBlock.OpacityProperty, Appear);
+            BETA.BeginAnimation(TextBlock.OpacityProperty, Appear);
 
-                CoverArtStraightSource.ImageSource = MusicHandler.MusicMetadata.Cover;
-            }
+            DoubleAnimation IndicatorExpand = new DoubleAnimation()
+            {
+                From = 0,
+                To = 25,
+                Duration = TimeSpan.FromSeconds(1),
+                EasingFunction = c
+            };
+
+            AppletIndicator.BeginAnimation(Border.WidthProperty, IndicatorExpand);
         }
 
-        public async Task MusicLibPrep()
-        {
-            string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string configDirectory = System.IO.Path.Combine(exeDirectory, "Config");
-            string filePath = System.IO.Path.Combine(configDirectory, "SongIndex.json");
-            string json = await System.IO.File.ReadAllTextAsync(filePath);
-            List<string> Songs = JsonConvert.DeserializeObject<List<string>>(json);
-
-            ScrollViewer songSelection = this.FindName("SongSelection") as ScrollViewer;
-
-            StackPanel songPanel = new StackPanel();
-
-            int Position = 1;
-            int Pos1;
-
-            foreach (string song in Songs)
-            {
-                TagLib.File tagFile = TagLib.File.Create(song);
-                TimeSpan duration = tagFile.Properties.Duration;
-
-                if (Position == 1)
-                {
-                    Pos1 = 70;
-                    Position = 0;
-                }
-                else
-                {
-                    Pos1 = 20;
-                }
-
-                Grid songGrid = new Grid
-                {
-                    Height = 90,
-                    VerticalAlignment = VerticalAlignment.Top,
-                    Margin = new Thickness(30, Pos1, 30, 0)
-                };
-
-                string AccentColor = "#000000";
-                Color color = (Color)ColorConverter.ConvertFromString(AccentColor);
-            
-                Border border = new Border
-                {
-                    Background = new SolidColorBrush(color),
-                    CornerRadius = new CornerRadius(20),
-                    Opacity = 0.7
-                };
-
-                songGrid.Children.Add(border);
-
-                if (tagFile.Tag.Pictures.Length >= 1)
-                {
-                    var bin = (byte[])(tagFile.Tag.Pictures[0].Data.Data);
-                    MemoryStream ms = new MemoryStream(bin);
-
-                    BitmapImage albumCover = new BitmapImage();
-                    albumCover.BeginInit();
-                    albumCover.CacheOption = BitmapCacheOption.OnLoad;
-                    albumCover.StreamSource = ms;
-                    albumCover.EndInit();
-                    albumCover.Freeze();
-
-                    Rectangle cover1 = new Rectangle
-                    {
-                        Margin = new Thickness(30, 0, 0, 0),
-                        HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
-                        RadiusX = 10,
-                        RadiusY = 10,
-                        Width = 80,
-                        Height = 80,
-
-                        Fill = new ImageBrush
-                        {
-                            ImageSource = albumCover
-                        }
-                    };
-
-                    songGrid.Children.Add(cover1);
-                }
-
-                StackPanel stackPanel = new StackPanel
-                {
-                    VerticalAlignment = VerticalAlignment.Center,
-                    Margin = new Thickness(130, 0, 200, 0)
-                };
-
-                stackPanel.Children.Add(new TextBlock { Text = tagFile.Tag.Title, Foreground = new SolidColorBrush(Colors.White), Margin = new Thickness(0, -3, 0, 0), TextWrapping = TextWrapping.Wrap, FontSize = 24, FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./Assets/Latin/Default.otf#SF Pro Display")
-            });
-                stackPanel.Children.Add(new TextBlock { Text = tagFile.Tag.FirstPerformer, Foreground = new SolidColorBrush(Colors.White), FontSize = 18, FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./Assets/Latin/Default.otf#SF Pro Display") });
-
-                songGrid.Children.Add(stackPanel);
-
-                songGrid.Children.Add(new TextBlock { Text = duration.ToString(@"mm\:ss"), Foreground = new SolidColorBrush(Colors.White), Margin = new Thickness(0, -40, 30, 0), FontSize = 24, VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = System.Windows.HorizontalAlignment.Right, FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./Assets/Latin/Default.otf#SF Pro Display") });
-
-                FileInfo fileInfo = new FileInfo(song);
-                long fileSizeInBytes = fileInfo.Length;
-                double fileSizeInMB = Math.Round((double)fileSizeInBytes / 1048576, 2);
-
-                songGrid.Children.Add(new TextBlock { Text = fileSizeInMB.ToString() + " MB", Foreground = new SolidColorBrush(Colors.White), Margin = new Thickness(0, 10, 30, 0), FontSize = 24, HorizontalAlignment = System.Windows.HorizontalAlignment.Right, VerticalAlignment = VerticalAlignment.Center, FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./Assets/Latin/Default.otf#SF Pro Display") });
-
-                var button = new System.Windows.Controls.Button { Opacity = 0, Content = song };
-                button.Click += Button_Click;
-                songGrid.Children.Add(button);
-
-                songPanel.Children.Add(songGrid);
-            }
-            songSelection.Content = songPanel;
-        }
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        public async void BarAni()
         {
             QuinticEase c = new QuinticEase();
             c.EasingMode = EasingMode.EaseInOut;
@@ -183,47 +89,25 @@ namespace PiMusic.Music
                 Duration = TimeSpan.FromSeconds(0.5)
             };
 
-            System.Windows.Controls.Button button = sender as System.Windows.Controls.Button;
-            var content = button.Content;
-
-            MusicHandler.StartMusic(content.ToString());
-            TagLib.File tagFile = TagLib.File.Create(content.ToString());
-
-            MusicTitle.Text = tagFile.Tag.Title;
-            MusicArtist.Text = tagFile.Tag.FirstPerformer;
-
-            MusicTitle.BeginAnimation(TextBlock.MarginProperty, PosCorrect);
+            MusicHome.Instance.MusicTitle.BeginAnimation(TextBlock.MarginProperty, PosCorrect);
             await Task.Delay(500);
-            MusicArtist.BeginAnimation(TextBlock.OpacityProperty, Appear);
-
-            if (tagFile.Tag.Pictures.Length >= 1)
-            {
-                var bin = (byte[])(tagFile.Tag.Pictures[0].Data.Data);
-                MemoryStream ms = new MemoryStream(bin);
-
-                BitmapImage albumCover = new BitmapImage();
-                albumCover.BeginInit();
-                albumCover.StreamSource = ms;
-                albumCover.EndInit();
-
-                // Assuming you're in the same class where CoverArt is defined
-                ImageBrush brush = (ImageBrush)CoverArt.Fill;
-                brush.ImageSource = albumCover;
-
-                ImageBrush brush2 = (ImageBrush)Home.Instance.CoverArt.Fill;
-                brush2.ImageSource = albumCover;
-            }
-
-            Home.Instance.SongTitle.Text = tagFile.Tag.Title;
-            Home.Instance.SongArtist.Text = tagFile.Tag.FirstPerformer;
-            PausePic.Opacity = 1;
-
-            TimeSpan duration = tagFile.Properties.Duration;
-            Home.Instance.EndTime.Text = duration.ToString(@"m\:ss");
-
-            Home.Instance.UnhideMusicWidget();
+            MusicHome.Instance.MusicArtist.BeginAnimation(TextBlock.OpacityProperty, Appear);
         }
+        public async void StatusCheck()
+        {
+            if(MusicHandler.IsPlaying == true)
+            {
+                MusicTitle.Text = MusicHandler.MusicMetadata.Title;
+                MusicArtist.Text = MusicHandler.MusicMetadata.Artist;
 
+                MusicTitle.Margin = new Thickness(125, 0, 0, 58);
+                await Task.Delay(500);
+                MusicArtist.Opacity = 1;
+
+                CoverArtStraightSource.ImageSource = MusicHandler.MusicMetadata.Cover;
+                PausePic.Opacity = 1;
+            }
+        }
 
         public async void Closure()
         {
@@ -251,15 +135,24 @@ namespace PiMusic.Music
                 Duration = TimeSpan.FromSeconds(0.4)
             };
 
+            DoubleAnimation UnExpand = new DoubleAnimation()
+            {
+                To = 100,
+                Duration = TimeSpan.FromSeconds(1),
+                EasingFunction = c
+            };
+
             Bar.BeginAnimation(Grid.MarginProperty, FlyOut);
+            Bar.BeginAnimation(Border.HeightProperty, UnExpand);
             await Task.Delay(1000);
 
             Statusbar.Instance.CurrentApp.BeginAnimation(TextBlock.OpacityProperty, Appear);
-            Statusbar.Instance.Lossless.BeginAnimation(Image.OpacityProperty, Appear);
+            Statusbar.Instance.Icon.BeginAnimation(Image.OpacityProperty, Appear);
 
             MainContent.BeginAnimation(Grid.OpacityProperty, Dissapear);
+            BarBG.BeginAnimation(Border.OpacityProperty, Dissapear);
 
-            await Task.Delay(500);
+            await Task.Delay(1000);
 
             MainWindow.Instance.ConfirmClosure();
         }
@@ -270,14 +163,95 @@ namespace PiMusic.Music
             {
                 MusicHandler.ResumeMusic();
                 PausePic.Source = new BitmapImage(new Uri("pack://application:,,,/PiMusic;component/Assets/Icons/Light/Pause.png"));
+                return;
             }
             else
             {
                 MusicHandler.PauseMusic();
                 PausePic.Source = new BitmapImage(new Uri("pack://application:,,,/PiMusic;component/Assets/Icons/Light/Play.png"));
+                return;
             }
+        }
 
-            return;
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            QuinticEase c = new QuinticEase();
+            c.EasingMode = EasingMode.EaseInOut;
+
+            ThicknessAnimation MoveFly = new ThicknessAnimation()
+            {
+                To = new Thickness(170, 52, 0, 0),
+                Duration = TimeSpan.FromSeconds(0.7),
+                EasingFunction = c
+            };
+
+            AppletIndicator.BeginAnimation(Border.MarginProperty, MoveFly);
+
+            MusicContent.JournalOwnership = JournalOwnership.OwnsJournal;
+            MusicContent.Navigate(new MusicRadio());
+            MusicContent.RemoveBackEntry();
+        }
+
+        private void LocalButton_Click(object sender, RoutedEventArgs e)
+        {
+            QuinticEase c = new QuinticEase();
+            c.EasingMode = EasingMode.EaseInOut;
+
+            ThicknessAnimation MoveFly = new ThicknessAnimation()
+            {
+                To = new Thickness(65, 52, 0, 0),
+                Duration = TimeSpan.FromSeconds(0.7),
+                EasingFunction = c
+            };
+
+            AppletIndicator.BeginAnimation(Border.MarginProperty, MoveFly);
+
+            MusicContent.JournalOwnership = JournalOwnership.OwnsJournal;
+            MusicContent.Navigate(new MusicLocal());
+            MusicContent.RemoveBackEntry();
+        }
+
+        private async void BarExpand_Click(object sender, RoutedEventArgs e)
+        {
+            double pageHeight = this.ActualHeight;
+
+            QuinticEase c = new QuinticEase();
+            c.EasingMode = EasingMode.EaseOut;
+
+            QuinticEase b = new QuinticEase();
+            b.EasingMode = EasingMode.EaseIn;
+
+            DoubleAnimation Expand = new DoubleAnimation()
+            {
+                To = pageHeight + 55,
+                Duration = TimeSpan.FromSeconds(0.6),
+                EasingFunction = c
+            };
+
+            ThicknessAnimation CoveraniPart1 = new ThicknessAnimation()
+            {
+                To = new Thickness(-60, 0, 0, 32),
+                Duration = TimeSpan.FromSeconds(0.6),
+                EasingFunction = b
+            };
+
+            ThicknessAnimation CoveraniPart2 = new ThicknessAnimation()
+            {
+                To = new Thickness(0, 0, 400, 32),
+                Duration = TimeSpan.FromSeconds(1),
+                EasingFunction = c
+            };
+
+            Bar.BeginAnimation(Border.HeightProperty, Expand);
+            CoverArt.BeginAnimation(Border.MarginProperty, CoveraniPart1);
+            await Task.Delay(600);
+            CoverArt.VerticalAlignment = VerticalAlignment.Center;
+            CoverArt.HorizontalAlignment = System.Windows.HorizontalAlignment.Right;
+            CoverArt.Margin = new Thickness(-500, 32, 0, 0);
+            CoverArt.Height = 300;
+            CoverArt.Width = 300;
+
+            CoverArt.BeginAnimation(Border.MarginProperty, CoveraniPart2);
         }
     }
 }

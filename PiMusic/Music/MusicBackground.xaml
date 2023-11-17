@@ -9,9 +9,9 @@
       Title="MusicBackground">
 
     <Grid>
-        <Image Opacity="0.8" Stretch="Fill" Margin="-30,-150,-30,-150" Source="/Assets/Placeholders/Cover.jpg">
+        <Image x:Name="CoverImage" Stretch="Uniform" Opacity="1" Margin="-30,-200,-30,-200" Source="/Assets/Placeholders/Cover3.jpg">
             <Image.Effect>
-                <BlurEffect Radius="50" />
+                <BlurEffect Radius="100" />
             </Image.Effect>
         </Image>
     </Grid>

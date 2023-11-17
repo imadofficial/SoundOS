@@ -21,7 +21,7 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-            <Image RenderOptions.BitmapScalingMode="HighQuality" Name="Lossless" Width="40" Height="40" Source="Assets/Icons/Home.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,15,0,0"/>
+            <Image x:Name="Icon" RenderOptions.BitmapScalingMode="HighQuality" Width="40" Height="40" Source="Assets/Icons/Home.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,15,0,0"/>
             <TextBlock x:Name="CurrentApp" Text="Thuis Scherm" Margin="10,0,0,0" FontSize="28" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Center" />
         </StackPanel>
 
