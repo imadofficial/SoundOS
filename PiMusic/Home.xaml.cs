@@ -1,7 +1,10 @@
-﻿using PiMusic.Music;
+﻿using PiMusic.Apps.Settings;
+using PiMusic.Apps.Weather;
+using PiMusic.Music;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,11 +26,60 @@ namespace PiMusic
     public partial class Home : Page
     {
         public static Home Instance;
-        
+
+        public static class GlobalStrings
+        {
+            public static String WeatherResponse;
+        }
+
+
         public Home()
         {
             InitializeComponent();
             Instance = this;
+            Init();
+        }
+
+        public async void Init()
+        {
+            await GetWeather();
+        }
+
+        public async Task GetWeather()
+        {
+            HttpClient client = new HttpClient();
+
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync("https://api.weatherapi.com/v1/current.json?key=b48046722eb448daafa173827211511&q=51.00365190200678,%204.308994029394593&aqi=no&lang=nl");
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+
+                GlobalStrings.WeatherResponse = responseBody;
+
+                var WeatherData = (dynamic)Newtonsoft.Json.JsonConvert.DeserializeObject(GlobalStrings.WeatherResponse);
+
+                Stad.Text = WeatherData["location"]["name"];
+                Graad.Text = WeatherData["current"]["temp_c"] + "°";
+                Conditie.Text = WeatherData["current"]["condition"]["text"];
+                LaatstGeupdate.Text = WeatherData["current"]["name"];
+
+                Stad.Opacity = 1;
+                Graad.Opacity = 1;
+                Conditie.Opacity = 1;
+                LaatstGeupdate.Opacity = 1;
+
+                ProgressRing.IsActive = false;
+            }
+            catch (HttpRequestException e)
+            {
+                
+            }
+            finally
+            {
+                client.Dispose();
+            }
+
         }
 
         public void SetMusicWidget(String Title, String Artist, bool Live, BitmapImage Cover, TimeSpan? SongSpan = null)
@@ -124,36 +176,59 @@ namespace PiMusic
 
         }
 
-        private void EnterSettings_Click(object sender, RoutedEventArgs e)
+        private async void EnterSettings_Click(object sender, RoutedEventArgs e)
         {
+            Statusbar.Instance.RemoveStatus();
+
             QuinticEase c = new QuinticEase();
             c.EasingMode = EasingMode.EaseOut;
 
-            DoubleAnimation ExpandBox = new DoubleAnimation()
+            DoubleAnimation ExpandBoxW = new DoubleAnimation()
             {
                 To = HomeScreen.ActualWidth,
-                Duration = TimeSpan.FromSeconds(1),
+                Duration = TimeSpan.FromSeconds(0.7),
+                EasingFunction = c
+            };
+
+            DoubleAnimation ExpandBoxH = new DoubleAnimation()
+            {
+                To = HomeScreen.ActualHeight,
+                Duration = TimeSpan.FromSeconds(0.7),
                 EasingFunction = c
             };
 
             DoubleAnimation DissapearLogo = new DoubleAnimation()
             {
                 To = 0,
-                Duration = TimeSpan.FromSeconds(1),
+                Duration = TimeSpan.FromSeconds(0.3),
                 EasingFunction = c
             };
 
             ThicknessAnimation CorrectPos = new ThicknessAnimation()
             {
                 To = new Thickness (0),
-                Duration = TimeSpan.FromSeconds(1),
+                Duration = TimeSpan.FromSeconds(0.7),
                 EasingFunction = c
             };
 
-            Instellingen.BeginAnimation(Grid.HeightProperty, ExpandBox);
-            Instellingen.BeginAnimation(Grid.WidthProperty, ExpandBox);
+            Instellingen.BeginAnimation(Grid.HeightProperty, ExpandBoxH);
+            Instellingen.BeginAnimation(Grid.WidthProperty, ExpandBoxW);
             Instellingen.BeginAnimation(Grid.MarginProperty, CorrectPos);
             SettingsIcon.BeginAnimation(Image.OpacityProperty, DissapearLogo);
+
+            //Statusbar.Instance.RemoveStatus();
+            Statusbar.Instance.SwitchColor(1);
+            Statusbar.Instance.StatusText("Instellingen");
+
+            await Task.Delay(1000);
+
+            MainWindow.Instance.MainContent.Content = new SettingsHome();
+        }
+
+        private void WeatherClick(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Instance.MainContent.Content = new MainWeather();
+
         }
     }
 }

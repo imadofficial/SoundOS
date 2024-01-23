@@ -1,7 +1,12 @@
-﻿using PiMusic.Music;
+﻿using PiMusic.Apps.Settings;
+using PiMusic.Apps.Weather;
+using PiMusic.Music;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -96,7 +101,7 @@ namespace PiMusic
 
             ColorAnimation ColorTransition = new ColorAnimation()
             {
-                To = (Color)ColorConverter.ConvertFromString(ColorCode),
+                To = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(ColorCode),
                 Duration = TimeSpan.FromSeconds(0.2)
             };
 
@@ -130,12 +135,29 @@ namespace PiMusic
 
         public void Closure()
         {
+            Assembly asm = Assembly.GetExecutingAssembly();
+            Stream iconStream = asm.GetManifestResourceStream("PiMusic.Assets.Icons.HomeBackup.png");
+            BitmapImage iconSource = new BitmapImage();
+            iconSource.BeginInit();
+            iconSource.StreamSource = iconStream;
+            iconSource.EndInit();
+
+            Statusbar.Instance.Icon.Source = iconSource;
+
             ExitAvailable = false;
             var page = MainWindow.Instance.MainContent.Content as Page;
 
             if (page is MusicHome MyPage)
             {
                 MyPage.Closure();
+            }
+            if (page is SettingsHome Settings)
+            {
+                Settings.Closure();
+            }
+            if (page is MainWeather Weather)
+            {
+                Weather.Closure();
             }
             else
             {

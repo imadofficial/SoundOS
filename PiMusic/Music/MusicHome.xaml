@@ -21,11 +21,13 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <TextBlock Opacity="0" x:Name="LocalFiles" Foreground="White" Text="Schijf" Margin="40,14,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <TextBlock Opacity="1" x:Name="LocalFiles" Foreground="White" Text="Schijf" Margin="40,14,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Button x:Name="LocalButton" Click="LocalButton_Click"  Opacity="0" Width="85" Height="40" Margin="36,14,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock Opacity="0" x:Name="OnlineRadio" Foreground="White" Text="Radio" Margin="140,14,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <TextBlock Opacity="1" x:Name="OnlineRadio" Foreground="White" Text="Radio" Margin="140,14,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <Button x:Name="RadioButton" Click="RadioButton_Click"  Opacity="0" Width="85" Height="40" Margin="136,14,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock Opacity="0" x:Name="BETA" Foreground="White" Text="BETA" Margin="220,14,0,0" FontSize="11" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <TextBlock Opacity="1" x:Name="Plus" Foreground="White" Text="Plus" Margin="240,14,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Button x:Name="PlusButton" Click="PlusButton_Click"  Opacity="0" Width="85" Height="40" Margin="225,14,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
 
         <Border x:Name="AppletIndicator" Background="White" CornerRadius="2" Height="3" Width="25" Margin="65,52,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="1"/>
 

@@ -1,5 +1,4 @@
 ﻿using NAudio.Wave;
-using PiMusic.Music;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,6 +14,7 @@ using System.Net;
 using System.Security.Policy;
 using System.Net.Http;
 using TagLib.Flac;
+using PiMusic.Music;
 
 namespace PiMusic
 {
@@ -32,7 +32,7 @@ namespace PiMusic
 
             public static BitmapImage Cover;
 
-            public static void Apply() //AppliesMetadata on all fronts
+            public static void Apply()
             {
                 Home.Instance.SetMusicWidget(Title, Artist, IsPlayingRadio, Cover);
                 MusicHome.Instance.StatusCheck();

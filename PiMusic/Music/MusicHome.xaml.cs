@@ -58,7 +58,6 @@ namespace PiMusic.Music
             LocalFiles.BeginAnimation(TextBlock.OpacityProperty, Appear);
             await Task.Delay(100);
             OnlineRadio.BeginAnimation(TextBlock.OpacityProperty, Appear);
-            BETA.BeginAnimation(TextBlock.OpacityProperty, Appear);
 
             DoubleAnimation IndicatorExpand = new DoubleAnimation()
             {
@@ -252,6 +251,11 @@ namespace PiMusic.Music
             CoverArt.Width = 300;
 
             CoverArt.BeginAnimation(Border.MarginProperty, CoveraniPart2);
+        }
+
+        private void PlusButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

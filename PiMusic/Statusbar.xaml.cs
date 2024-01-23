@@ -18,6 +18,8 @@ using System.Net.NetworkInformation;
 using System.Threading;
 using System.ComponentModel;
 using System.Windows.Media.Animation;
+using System.IO;
+using System.Reflection;
 
 namespace PiMusic
 {
@@ -59,6 +61,19 @@ namespace PiMusic
 
             CurrentApp.Text = string.Empty;
             Icon.Margin = new Thickness(-40, 15, 0, 0);
+        }
+
+        public async void RemoveImage()
+        {
+            DoubleAnimation Dissapear = new DoubleAnimation()
+            {
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25)
+            };
+            Icon.BeginAnimation(Image.OpacityProperty, Dissapear);
+
+            await Task.Delay(250);
+            Icon.Margin = new Thickness(-10, 15, 0, 0);
         }
 
         public async void AppearStatus()
@@ -145,7 +160,7 @@ namespace PiMusic
             }
             else
             {
-                ConnectionType.Text = ("Geen driver");
+                ConnectionType.Text = ("");
                 Signal1.Opacity = 0.5;
                 Signal2.Opacity = 0.5;
                 Signal3.Opacity = 0.5;
@@ -155,7 +170,15 @@ namespace PiMusic
 
         public void IcoModify(string Path)
         {
-            
+            Assembly asm = Assembly.GetExecutingAssembly();
+            Stream iconStream = asm.GetManifestResourceStream(Path);
+            BitmapImage iconSource = new BitmapImage();
+            iconSource.BeginInit();
+            iconSource.StreamSource = iconStream;
+            iconSource.EndInit();
+
+            Icon.Source = iconSource;
+
         }
     }
 }

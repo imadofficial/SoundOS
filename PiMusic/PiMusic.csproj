@@ -13,26 +13,43 @@
 
   <ItemGroup>
     <None Remove="Assets\Icons\Airplay.png" />
+    <None Remove="Assets\Icons\Dark\Globe.png" />
     <None Remove="Assets\Icons\Dark\Pause.png" />
     <None Remove="Assets\Icons\Dark\Play.png" />
     <None Remove="Assets\Icons\Dark\Settings.png" />
+    <None Remove="Assets\Icons\Dark\WiFi.png" />
     <None Remove="Assets\Icons\Home.png" />
+    <None Remove="Assets\Icons\HomeBackup.png" />
+    <None Remove="Assets\Icons\ISNPlus.png" />
     <None Remove="Assets\Icons\Light\AppleMusic.png" />
     <None Remove="Assets\Icons\Light\Back.png" />
+    <None Remove="Assets\Icons\Light\Globe.png" />
     <None Remove="Assets\Icons\Light\Pause.png" />
     <None Remove="Assets\Icons\Light\Play.png" />
     <None Remove="Assets\Icons\Light\Settings.png" />
+    <None Remove="Assets\Icons\Light\WeerIcon.png" />
+    <None Remove="Assets\Icons\Light\WiFi.png" />
     <None Remove="Assets\Icons\SD-Card.png" />
+    <None Remove="Assets\Latin\Bold.otf" />
     <None Remove="Assets\Latin\Default.otf" />
     <None Remove="Assets\Placeholders\Cover.jpg" />
     <None Remove="Assets\Placeholders\Cover2.jpg" />
     <None Remove="Assets\Placeholders\Cover3.jpg" />
     <None Remove="Assets\Placeholders\DESTRUCTION_321.jpg" />
+    <None Remove="Assets\Wallpapers\iOS7.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Assets\Icons\HomeBackup.png" />
+    <Resource Include="Assets\Icons\ISNPlus.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Icons\Dark\Globe.png" />
     <Resource Include="Assets\Icons\Dark\Play.png" />
     <Resource Include="Assets\Icons\Dark\Settings.png" />
+    <Resource Include="Assets\Icons\Dark\WiFi.png" />
+    <Resource Include="Assets\Icons\Light\Globe.png" />
     <Resource Include="Assets\Icons\Light\Play.png" />
   </ItemGroup>
 
@@ -40,6 +57,9 @@
     <Resource Include="Assets\Icons\Dark\Pause.png" />
     <Resource Include="Assets\Icons\Light\Pause.png" />
     <Resource Include="Assets\Icons\Light\Settings.png" />
+    <EmbeddedResource Include="Assets\Icons\Light\WeerIcon.png" />
+    <Resource Include="Assets\Icons\Light\WiFi.png" />
+    <Resource Include="Assets\Latin\Bold.otf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,6 +85,7 @@
     <Resource Include="Assets\Placeholders\Cover.jpg" />
     <Resource Include="Assets\Placeholders\Cover2.jpg" />
     <Resource Include="Assets\Placeholders\DESTRUCTION_321.jpg" />
+    <Resource Include="Assets\Wallpapers\iOS7.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -72,7 +93,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Apps\Settings\" />
+    <Folder Include="Apps\Weather\" />
   </ItemGroup>
-
 </Project>

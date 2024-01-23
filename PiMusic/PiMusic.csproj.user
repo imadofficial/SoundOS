@@ -7,22 +7,22 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Apps\Settings\About.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Apps\Settings\Network.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Apps\Settings\SettingsHome.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Apps\Settings\TimeDate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Apps\Weather\MainWeather.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Home.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Music\MusicBackground.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Music\MusicHome.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Music\MusicLocal.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Music\MusicRadio.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Music\MusicSplash.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Navbar.xaml.cs">
@@ -36,25 +36,25 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Apps\Settings\About.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Apps\Settings\Network.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Apps\Settings\SettingsHome.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Apps\Settings\TimeDate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Apps\Weather\MainWeather.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Home.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Music\MusicBackground.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Music\MusicHome.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Music\MusicLocal.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Music\MusicRadio.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Music\MusicSplash.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Navbar.xaml">

@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PiMusic"
+      xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       x:Name="HomeScreen"
@@ -13,7 +14,7 @@
         <Grid.LayoutTransform>
             <ScaleTransform ScaleX="1" ScaleY="1" />
         </Grid.LayoutTransform>
-        
+
         <Grid x:Name="MusicBlok" Height="350" Width="350" HorizontalAlignment="Center" Margin="-370,50,0,0">
             <Border x:Name="MusicBlokBG" Opacity="0.5" Background="#394342" CornerRadius="20"/>
             
@@ -42,11 +43,14 @@
             <Button x:Name="Pause" Click="Pause_Click" Opacity="0" IsEnabled="False" VerticalAlignment="Bottom" Height="40"/>
         </Grid>
 
-        <Grid Opacity="0" x:Name="WeerBlok" HorizontalAlignment="Center" Height="180" Width="250" Margin="270,0,0,120">
+        <Grid Opacity="1" x:Name="WeerBlok" HorizontalAlignment="Center" Height="180" Width="250" Margin="270,0,0,120">
             <Border Background="LightBlue" CornerRadius="15"/>
-            <TextBlock FontStretch="UltraCondensed" Text="Laken" Width="210" Foreground="Black" Margin="20,10,0,0" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
-            <TextBlock FontStretch="UltraCondensed" Text="21°C" Foreground="Black" VerticalAlignment="Center" Margin="20,0,0,50" FontSize="62" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" />
-            <TextBlock FontStretch="UltraCondensed" Text="21:35" Foreground="Black" VerticalAlignment="Bottom" Margin="0,0,20,10" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" />
+            <mah:ProgressRing x:Name="ProgressRing" />
+            <TextBlock Opacity="0" x:Name="Stad" FontStretch="UltraCondensed" Text="Laken" Width="210" Foreground="Black" Margin="20,10,0,0" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBlock Opacity="0" x:Name="Graad" FontStretch="UltraCondensed" Text="21°C" Foreground="Black" VerticalAlignment="Center" Margin="20,0,0,50" FontSize="62" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" />
+            <TextBlock Opacity="0" x:Name="Conditie" FontStretch="UltraCondensed" Text="" Foreground="Black" VerticalAlignment="Bottom" Margin="20,0,0,10" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" />
+            <TextBlock Opacity="0" x:Name="LaatstGeupdate" FontStretch="UltraCondensed" Text="21:35" Foreground="Black" VerticalAlignment="Bottom" Margin="0,0,20,10" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" />
+            <Button Opacity="0" Click="WeatherClick" />
         </Grid>
 
         <Grid Opacity="1" x:Name="Instellingen" HorizontalAlignment="Center" Height="80" Width="80" Margin="100,0,0,-170">
@@ -54,6 +58,15 @@
             <Image x:Name="SettingsIcon" Opacity="1" RenderOptions.BitmapScalingMode="HighQuality" Source="Assets/Icons/Light/Settings.png" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,10,10,10"/>
             <Button x:Name="EnterSettings" Opacity="0" Click="EnterSettings_Click"/>
         </Grid>
-
+        
+        <Grid Opacity="1" x:Name="ISNPlus" HorizontalAlignment="Center" Height="80" Width="80" Margin="290,0,0,-170">
+            <Border Background="Black" CornerRadius="10"/>
+            
+            <Rectangle Opacity="1" x:Name="ISNPlusIcon" RadiusX="10" RadiusY="10">
+                <Rectangle.Fill>
+                    <ImageBrush x:Name="ISNPlusSource" RenderOptions.BitmapScalingMode="HighQuality" ImageSource="/Assets/Icons/ISNPlus.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
     </Grid>
 </Page>

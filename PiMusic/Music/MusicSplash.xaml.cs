@@ -125,11 +125,20 @@ namespace PiMusic.Music
                         }
                     }
                 }
+                catch (UnauthorizedAccessException ex)
+                {
+
+                }
+
+                catch (IOException ex)
+                {
+
+                }
                 catch (Exception)
                 {
                     continue;
                 }
-            
+
             }
             string json = JsonConvert.SerializeObject(filePaths, Newtonsoft.Json.Formatting.Indented);
             string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;
