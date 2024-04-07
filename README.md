@@ -1,5 +1,5 @@
 # PiSoundOS
-The Windows-built music player made for the Raspberry Pi 4B+, Optimized for Windows 11 for ARM.
+The music player made for all types of operating systems, Optimized for Windows 11, Linux & MacOS.
 
 **Latest builds**
 
