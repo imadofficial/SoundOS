@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="480"
+             x:Class="PiSound.Views.Music.MusicSplash">
+	
+	<Grid x:Name="MainDisplay" Opacity="1" Background="Black">
+		<Grid x:Name="Load" Background="Black">
+			<TextBlock x:Name="Aantal" FontStretch="UltraCondensed" Text="" Foreground="White" Margin="0,160,0,0" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.7" />
+			<TextBlock x:Name="Status" FontStretch="UltraCondensed" Text="" Foreground="White" Margin="0,100,0,0" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Center" />
+			<Image x:Name="MusicIcon" Width="300" Height="300" Source="/Assets/Icons/Light/AppleMusic.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,100"/>
+			<Grid x:Name="Bar" Opacity="0" Margin="0,0,0,-25">
+				<Border Background="Gray" CornerRadius="30" Height="100" VerticalAlignment="Bottom" Opacity="1"/>
+
+				<Border VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="CoverArt" Margin="50,0,0,32" Width="60" Height="60" CornerRadius="10" ClipToBounds="True">
+					<Border.Background>
+						<ImageBrush Source="/Assets/Placeholders/Cover2.jpg"/>
+					</Border.Background>
+				</Border>
+
+				<TextBlock x:Name="MusicTitle" FontStretch="UltraCondensed" Text="Laden..." Foreground="White" Margin="125,0,0,47" FontSize="28" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+				<TextBlock Opacity="0" x:Name="MusicArtist" FontStretch="UltraCondensed" Text="" Foreground="White" Margin="125,0,0,40" FontSize="16" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+
+			</Grid>
+		</Grid>
+	</Grid>
+</UserControl>
