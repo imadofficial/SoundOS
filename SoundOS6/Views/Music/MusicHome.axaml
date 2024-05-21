@@ -1,0 +1,53 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="SoundOS6.Views.Music.MusicHome">
+	<Grid Background="Black">
+		<Image x:Name="AlbumCoverBG" Opacity="0.3" Source="/Assets/Placeholders/DESTRUCTION_321.jpg" Stretch="UniformToFill">
+			<Image.Effect>
+				<BlurEffect Radius="120" />
+			</Image.Effect>
+		</Image>
+
+		<Image Source="/Assets/Icons/Light/Back.png" Height="40" Margin="30,14,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+		<Button Click="BackTap" Opacity="0" Height="40" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,14,0,0" />
+
+		<TextBlock Opacity="1" x:Name="LocalFiles" Foreground="White" Text="Schijf" Margin="80,14,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+		<Button Opacity="0" Click="LocalButton_Click" x:Name="LocalButton" Width="85" Height="40" Margin="78,14,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+		<TextBlock Opacity="0.5" x:Name="OnlineRadio" Foreground="White" Text="Radio" Margin="180,14,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+		<Button Opacity="0" Click="RadioButton_Click" x:Name="RadioButton" Width="85" Height="40" Margin="175,14,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+		<Border CornerRadius="20,20,0,0" Margin="0,70,0,0">
+			<ContentControl x:Name="PageViewer"/>
+		</Border>
+
+		<Grid x:Name="Bar" Opacity="1" Height="100" VerticalAlignment="Bottom" Margin="0,0,0,-25">
+			<Border Background="Transparent" BorderThickness="1" BorderBrush="White" CornerRadius="30"  Opacity="1"/>
+
+			<Border VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="CoverArt" Margin="50,0,0,32" Width="60" Height="60" CornerRadius="10" ClipToBounds="True">
+				<Border.Background>
+					<ImageBrush Source="/Assets/Placeholders/Cover2.jpg"/>
+				</Border.Background>
+			</Border>
+
+			<TextBlock x:Name="MusicTitle" FontStretch="UltraCondensed" Text="Laden..." Foreground="White" Margin="125,0,0,47" FontSize="28" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+			<TextBlock Opacity="0" x:Name="MusicArtist" FontStretch="UltraCondensed" Text="" Foreground="White" Margin="125,0,0,40" FontSize="16" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+
+			<Grid x:Name="PauseButton">
+				<Image Opacity="0" x:Name="PausePic" Source="/Assets/Icons/Light/Pause.png" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,50,45"/>
+				<Border x:Name="PauseBGEffect" Width="60" Height="40" Opacity="0" Background="White" CornerRadius="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,37,43"/>
+				<Button Click="PauseClick" Width="60" Height="40" Opacity="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,37,43" />
+			</Grid>
+			<TextBlock Opacity="0.55" x:Name="TimerElapsed" Text="" Foreground="White" Margin="0,0,105,50" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+
+			<Button IsEnabled="True" x:Name="ExpandBTN" Click="ExpandBar" Opacity="0" HorizontalAlignment="Right" Height="100" Width="10000" Margin="0,0,150,0"/>
+		</Grid>
+
+		<Border>
+			<ContentControl x:Name="StatusShow"/>
+		</Border>
+	</Grid>
+</UserControl>

@@ -1,0 +1,39 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="SoundOS6.Views.Music.TVMode">
+	<Grid Background="Black">
+		<Image Source="/Assets/Icons/Light/Back.png" Height="40" Margin="30,14,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+		<Button Click="Button_Click" Opacity="0" Height="40" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,14,0,0" />
+
+		<TextBlock Opacity="1" x:Name="LocalFiles" Foreground="White" Text="Terug" Margin="70,14,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+		<Button Click="Button_Click" Opacity="0" x:Name="LocalButton" Width="85" Height="40" Margin="78,14,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+		<StackPanel Orientation="Horizontal" Margin="0,35,0,0" HorizontalAlignment="Center">
+			<Border Opacity="1" x:Name="CoverArt" Width="300" HorizontalAlignment="Left" Height="300" CornerRadius="10" ClipToBounds="True">
+				<Border.Background>
+					<ImageBrush Source="/Assets/Placeholders/Cover2.jpg"/>
+				</Border.Background>
+			</Border>
+			<StackPanel VerticalAlignment="Center" Margin="0,-90,0,0">
+				<TextBlock x:Name="MusicTitle" Opacity="1" Foreground="White" Text="Belle de Nuit" Margin="30,0,0,0" FontSize="28" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+				<TextBlock x:Name="MusicArtist" Opacity="1" Foreground="White" Text="黒皇帝 feat. AKA" Margin="30,0,0,0" FontSize="18" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+				<Border Width="300" Margin="30,10,0,0" Background="White" CornerRadius="12">
+					<Grid>
+						<Slider IsEnabled="False" VerticalAlignment="Top" ValueChanged="Slider_ValueChanged" PointerPressed="Slider_PointerPressed" PointerReleased="Slider_PointerReleased" Maximum="9" Margin="10,0,10,0" x:Name="Slider" />
+						<TextBlock Opacity="1" x:Name="TimerElapsed" Foreground="Black" Text="0:00" Margin="10,40,0,0" FontSize="16" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+						<TextBlock Opacity="1" x:Name="TimerEnd" Foreground="Black" Text="0:02" Margin="0,40,10,0" FontSize="16" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
+					</Grid>
+				</Border>
+
+				<Grid Margin="0,50,0,0">
+					<Image Tapped="PauseBTN" Source="/Assets/Icons/Light/Pause.png" Height="60" Width="60" VerticalAlignment="Center" x:Name="Pause" />
+					<Image Margin="-130,-50,0,0" Tapped="BackSong" Source="/Assets/Icons/Light/Scrub.png" Height="60" Width="60" VerticalAlignment="Center" x:Name="BackABit" />
+					<Image Margin="130,-50,0,0" Tapped="ForwardSong" Source="/Assets/Icons/Light/ScrubForward.png" Height="60" Width="60" VerticalAlignment="Center" x:Name="ForwardABit" />
+				</Grid>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</UserControl>

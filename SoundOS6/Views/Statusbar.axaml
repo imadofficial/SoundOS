@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="70"
+             x:Class="SoundOS6.Views.Statusbar">
+	<Grid>
+		<StackPanel x:Name="RightSide" Height="40" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,40,0">
+			<TextBlock Foreground="White" Opacity="0" Text="R" Margin="0,0,0,0" FontSize="11" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
+			<Border x:Name="Signal1" Margin="0,15,2,0" Height="10" Width="6" Background="White" CornerRadius="2"/>
+			<Border x:Name="Signal2" Margin="0,10,2,0" Height="15" Width="6" Background="White" CornerRadius="2"/>
+			<Border x:Name="Signal3" Margin="0,5,2,0" Height="20" Width="6" Background="White" CornerRadius="2" Opacity="1"/>
+			<Border x:Name="Signal4" Margin="0,0,10,0" Height="25" Width="6" Background="White" CornerRadius="2" Opacity="1"/>
+
+			<TextBlock Foreground="White" x:Name="ConnectionType" Text="WiFi" Margin="-4,0,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
+			<TextBlock Foreground="White" x:Name="Time" Text="00:00" Margin="20,0,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
+		</StackPanel>
+
+		<StackPanel x:Name="LeftSide" Orientation="Horizontal" HorizontalAlignment="Left">
+			<Image x:Name="Icon" Width="40" Height="40" Source="/Assets/Icons/HomeWhite.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,15,0,0"/>
+			<TextBlock Foreground="White" x:Name="CurrentApp" Text="Thuis Scherm" Margin="10,0,0,0" FontSize="28" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Center" />
+		</StackPanel>
+	</Grid>
+</UserControl>

@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="Assets\avalonia-logo.ico" />
+    <None Remove="Assets\Icons\Airplay.png" />
+    <None Remove="Assets\Icons\Dark\Back.png" />
+    <None Remove="Assets\Icons\Dark\Globe.png" />
+    <None Remove="Assets\Icons\Dark\Pause.png" />
+    <None Remove="Assets\Icons\Dark\Play.png" />
+    <None Remove="Assets\Icons\Dark\Settings.png" />
+    <None Remove="Assets\Icons\Dark\WiFi.png" />
+    <None Remove="Assets\Icons\Home.png" />
+    <None Remove="Assets\Icons\HomeBackup.png" />
+    <None Remove="Assets\Icons\HomeWhite.png" />
+    <None Remove="Assets\Icons\ISNPlus.png" />
+    <None Remove="Assets\Icons\Light\AppleMusic.png" />
+    <None Remove="Assets\Icons\Light\Back.png" />
+    <None Remove="Assets\Icons\Light\Globe.png" />
+    <None Remove="Assets\Icons\Light\Pause.png" />
+    <None Remove="Assets\Icons\Light\Play.png" />
+    <None Remove="Assets\Icons\Light\Scrub.png" />
+    <None Remove="Assets\Icons\Light\ScrubForward.png" />
+    <None Remove="Assets\Icons\Light\Settings.png" />
+    <None Remove="Assets\Icons\Light\WeerIcon.png" />
+    <None Remove="Assets\Icons\Light\WiFi.png" />
+    <None Remove="Assets\Icons\Lossless.png" />
+    <None Remove="Assets\Icons\SD-Card.png" />
+    <None Remove="Assets\Icons\Win11.png" />
+    <None Remove="Assets\Latin\Bold.otf" />
+    <None Remove="Assets\Latin\Default.otf" />
+    <None Remove="Assets\Placeholders\Cover.jpg" />
+    <None Remove="Assets\Placeholders\Cover2.jpg" />
+    <None Remove="Assets\Placeholders\Cover3.jpg" />
+    <None Remove="Assets\Placeholders\DefaultWallpaper.jpg" />
+    <None Remove="Assets\Placeholders\DESTRUCTION_321.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="$(AvaloniaVersion)" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="Deadpikle.AvaloniaProgressRing" Version="0.10.6" />
+    <PackageReference Include="LibVLCSharp" Version="3.8.4" />
+    <PackageReference Include="LibVLCSharp.Avalonia" Version="3.8.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="TagLibSharp" Version="2.3.0" />
+    <PackageReference Include="VideoLAN.LibVLC.Windows" Version="3.0.20" />
+  </ItemGroup>
+</Project>
