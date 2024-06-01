@@ -8,3 +8,4 @@ The music player made for all types of operating systems, Optimized for Windows 
 
 ## What are the features?
 - Play your favorite songs off of an external media!
+- Play your favorite radio stations.
