@@ -7,6 +7,6 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="SoundOS6.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="SoundOS (1.2 - Preview 2)">
+        Title="SoundOS (1.2 - Preview 3)">
         <views:MainView />
 </Window>

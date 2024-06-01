@@ -54,8 +54,6 @@ namespace SoundOS6.Views
                     EndTime.Opacity = 1;
                     BackgroundBar.Opacity = 1;
                     LiveLbl.Opacity = 0;
-
-                    EndTime.Text = SongSpan.ToString();
                 }
 
                 Instructions.Opacity = 0;
@@ -79,7 +77,7 @@ namespace SoundOS6.Views
             {
                 MusicHandler.ResumeMusic();
 
-                using (var stream = AssetLoader.Open(new Uri("avares://PiSound/Assets/Icons/Light/Pause.png")))
+                using (var stream = AssetLoader.Open(new Uri("avares://SoundOS6/Assets/Icons/Light/Pause.png")))
                 {
                     Play.Source = new Avalonia.Media.Imaging.Bitmap(stream);
                 }
@@ -91,7 +89,7 @@ namespace SoundOS6.Views
             else
             {
                 MusicHandler.PauseMusic();
-                using (var stream = AssetLoader.Open(new Uri("avares://PiSound/Assets/Icons/Light/Play.png")))
+                using (var stream = AssetLoader.Open(new Uri("avares://SoundOS6/Assets/Icons/Light/Play.png")))
                 {
                     Play.Source = new Avalonia.Media.Imaging.Bitmap(stream);
                 }

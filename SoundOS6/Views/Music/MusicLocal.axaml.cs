@@ -182,9 +182,6 @@ namespace SoundOS6.Views.Music
             MusicHome.Instance.PausePic.Opacity = 1;
             MainView.Instance.PlayCommandBtn.IsEnabled = true;
 
-            TimeSpan duration = tagFile.Properties.Duration;
-            MainView.Instance.EndTime.Text = duration.ToString(@"m\:ss");
-
             MainView.Instance.UnhideMusicWidget();
 
             using (var stream = AssetLoader.Open(new Uri("avares://SoundOS6/Assets/Icons/Light/Pause.png")))
@@ -219,11 +216,8 @@ namespace SoundOS6.Views.Music
 
             try
             {
-                if (TVMode.Instance.NotDragged)
-                {
-                    TVMode.Instance.TimerElapsed.Text = currentPositionFormatted;
-                    TVMode.Instance.Slider.Value = currentPositionInSeconds;
-                }
+                TVMode.Instance.TimerElapsed.Text = currentPositionFormatted;
+                TVMode.Instance.Slider.Value = currentPositionInSeconds;
             }
             catch (Exception)
             {

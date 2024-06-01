@@ -20,7 +20,7 @@ namespace SoundOS6.Views.Music
             MusicHome.Instance.MusicArtist.Text = MusicHandler.MusicMetadata.Artist;
 
             var client = new HttpClient();
-            var response = await client.GetAsync("https://plus.imadsnetwork.net/icon/Radio/STUBRU.png");
+            var response = await client.GetAsync("https://plus.imadsnetwork.net/icon/Radio/MPB_Radio_1.png");
             var bytes = await response.Content.ReadAsByteArrayAsync();
             using var ms = new MemoryStream(bytes);
             var bitmap = new Bitmap(ms);

@@ -7,7 +7,7 @@
              x:Class="SoundOS6.Views.MainView"
              x:DataType="vm:MainViewModel">
 	<Grid Background="Black">
-		<Image Opacity="0.5" Source="/Assets/Placeholders/DefaultWallpaper.jpg" Stretch="UniformToFill">
+		<Image Opacity="0.5" Source="/Assets/Placeholders/DefaultWallpaper.jpg" Margin="-20,-20,-20,-20" Stretch="UniformToFill">
 			<Image.Effect>
 				<BlurEffect Radius="45" />
 			</Image.Effect>

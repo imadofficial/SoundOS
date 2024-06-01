@@ -21,11 +21,10 @@ namespace SoundOS6.Views
         public static bool IsPlaying;
         public static bool IsPlayingRadio;
         public static String CurrentPath = "";
-        private static DispatcherTimer _TimeElapsed;
+        public static DispatcherTimer _TimeElapsed;
         public static string EndTimes;
         public static double EndTimesInSeconds;
         public static double TimeElapsedInSeconds;
-
         public static string CurrentSongPath;
 
         public static class MusicMetadata
@@ -75,6 +74,8 @@ namespace SoundOS6.Views
 
             TimeSpan duration = tagFile.Properties.Duration;
             EndTimes = duration.ToString(@"m\:ss");
+
+            MainView.Instance.EndTime.Text = EndTimes;
             EndTimesInSeconds = duration.TotalSeconds;
 
             try
@@ -142,11 +143,8 @@ namespace SoundOS6.Views
 
             try
             {
-                if (TVMode.Instance.NotDragged)
-                {
-                    TVMode.Instance.TimerElapsed.Text = currentPositionFormatted;
-                    TVMode.Instance.Slider.Value = currentPositionInSeconds;
-                }
+                TVMode.Instance.TimerElapsed.Text = currentPositionFormatted;
+                TVMode.Instance.Slider.Value = currentPositionInSeconds;
             }
             catch (Exception)
             {
@@ -155,14 +153,15 @@ namespace SoundOS6.Views
 
         public static void StartMusic(string path, bool StopAdvanced)
         {
+            CurrentSongPath = path;
+
             if (StopAdvanced)
             {
                 StopMusic();
             }
             
             Core.Initialize();
-            CurrentSongPath = path;
-
+            
             Debug.WriteLine("Song Started: '" + path + "'");
 
             using var libVLC = new LibVLC();
@@ -185,11 +184,13 @@ namespace SoundOS6.Views
             IsPlaying = true;
 
             CollectMetadata(path);
+            
             _stream.EndReached += OnSongEnd;
         }
 
         private static async void OnSongEnd(object sender, EventArgs e)
         {
+            _stream.Pause();
             await Dispatcher.UIThread.InvokeAsync(() =>
             {
                 int index = MusicSplash.Instance.filePaths.IndexOf(CurrentSongPath);
@@ -201,9 +202,6 @@ namespace SoundOS6.Views
 
                     MusicHome.Instance.PausePic.Opacity = 1;
                     MainView.Instance.PlayCommandBtn.IsEnabled = true;
-
-                    TimeSpan duration = tagFile.Properties.Duration;
-                    MainView.Instance.EndTime.Text = duration.ToString(@"m\:ss");
 
                     MainView.Instance.UnhideMusicWidget();
 
@@ -225,9 +223,6 @@ namespace SoundOS6.Views
 
                     MusicHome.Instance.PausePic.Opacity = 1;
                     MainView.Instance.PlayCommandBtn.IsEnabled = true;
-
-                    TimeSpan duration = tagFile.Properties.Duration;
-                    MainView.Instance.EndTime.Text = duration.ToString(@"m\:ss");
 
                     MainView.Instance.UnhideMusicWidget();
 
