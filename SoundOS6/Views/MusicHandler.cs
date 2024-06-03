@@ -12,6 +12,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using TagLib.Ogg;
 
 namespace SoundOS6.Views
 {
@@ -50,6 +51,11 @@ namespace SoundOS6.Views
                         TVMode.Instance.MusicArtist.Text = Artist;
                     }
                     catch (Exception ex) { }
+
+                    using (var stream = AssetLoader.Open(new Uri("avares://SoundOS6/Assets/Icons/Light/Pause.png")))
+                    {
+                        MusicHome.Instance.PausePic.Source = new Avalonia.Media.Imaging.Bitmap(stream);
+                    }
                 });
                 
             }
@@ -145,6 +151,8 @@ namespace SoundOS6.Views
             {
                 TVMode.Instance.TimerElapsed.Text = currentPositionFormatted;
                 TVMode.Instance.Slider.Value = currentPositionInSeconds;
+
+                TVMode.Instance.RadioTimeCurrent.Text = currentPositionFormatted;
             }
             catch (Exception)
             {
@@ -161,7 +169,9 @@ namespace SoundOS6.Views
             }
             
             Core.Initialize();
-            
+
+            IsPlayingRadio = false;
+            IsPlaying = true;
             Debug.WriteLine("Song Started: '" + path + "'");
 
             using var libVLC = new LibVLC();
@@ -180,8 +190,7 @@ namespace SoundOS6.Views
             _stream.Play();
 
             CurrentPath = path;
-            IsPlayingRadio = false;
-            IsPlaying = true;
+            
 
             CollectMetadata(path);
             
@@ -246,6 +255,14 @@ namespace SoundOS6.Views
         {
             _stream.Pause();
             IsPlaying = false;
+
+            using (var stream = AssetLoader.Open(new Uri("avares://SoundOS6/Assets/Icons/Light/Play.png")))
+            {
+                MainView.Instance.Play.Source = new Avalonia.Media.Imaging.Bitmap(stream);
+            }
+
+            MainView.Instance.PlayingStat.Text = "Afspelen";
+
             return;
         }
 
@@ -253,6 +270,13 @@ namespace SoundOS6.Views
         {
             _stream.Pause();
             IsPlaying = true;
+
+            using (var stream = AssetLoader.Open(new Uri("avares://SoundOS6/Assets/Icons/Light/Pause.png")))
+            {
+                MainView.Instance.Play.Source = new Avalonia.Media.Imaging.Bitmap(stream);
+            }
+
+            MainView.Instance.PlayingStat.Text = "Pauseren";
             return;
         }
 

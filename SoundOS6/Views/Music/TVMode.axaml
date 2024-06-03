@@ -17,15 +17,22 @@
 					<ImageBrush Source="/Assets/Placeholders/Cover2.jpg"/>
 				</Border.Background>
 			</Border>
-			<StackPanel VerticalAlignment="Center" Margin="0,0,0,0">
+			<StackPanel x:Name="Controllers" VerticalAlignment="Center" Margin="0,0,0,0">
 				<TextBlock x:Name="MusicTitle" Opacity="1" Foreground="White" Text="Belle de Nuit" Margin="30,0,0,0" FontSize="28" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
 				<TextBlock x:Name="MusicArtist" Opacity="1" Foreground="White" Text="黒皇帝 feat. AKA" Margin="30,0,0,0" FontSize="18" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
-				<Border Width="300" Margin="30,10,0,0" Background="White" CornerRadius="12">
+				<Border x:Name="SliderTime" Width="300" Margin="30,10,0,0" Background="White" CornerRadius="12">
 					<Grid>
 						<Slider IsEnabled="False" VerticalAlignment="Top" Maximum="9" Margin="10,0,10,0" x:Name="Slider" />
 						<TextBlock Opacity="1" x:Name="TimerElapsed" Foreground="Black" Text="0:00" Margin="10,40,0,0" FontSize="16" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
 						<TextBlock Opacity="1" x:Name="TimerEnd" Foreground="Black" Text="0:02" Margin="0,40,10,0" FontSize="16" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" />
 					</Grid>
+				</Border>
+
+				<Border x:Name="RadioTime" Width="300" Margin="30,10,0,0" Background="Black" CornerRadius="12">
+					<StackPanel>
+						<TextBlock Opacity="1" Foreground="White" Text="Live" Margin="0,0,0,0" FontSize="26" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+						<TextBlock Opacity="1" Foreground="White" x:Name="RadioTimeCurrent" Text="--:--" Margin="0,0,0,0" FontSize="18" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+					</StackPanel>
 				</Border>
 
 				<Grid Margin="0,25,0,0">

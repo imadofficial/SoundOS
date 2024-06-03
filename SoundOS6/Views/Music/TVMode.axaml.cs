@@ -26,6 +26,18 @@ namespace SoundOS6.Views.Music
             {
                 BackABit.Opacity = 0;
                 ForwardABit.Opacity = 0;
+                NextSong.Opacity = 0;
+                PreviousSong.Opacity = 0;
+
+                var border = this.FindControl<Border>("SliderTime");
+                var rootGrid = this.FindControl<StackPanel>("Controllers");
+                rootGrid.Children.Remove(border);
+
+            }else{
+                var border = this.FindControl<Border>("RadioTime");
+                var rootGrid = this.FindControl<StackPanel>("Controllers");
+                rootGrid.Children.Remove(border);
+
             }
             VolumeSlider.Value = MusicHandler._stream.Volume;
         }

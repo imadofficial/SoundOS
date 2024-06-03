@@ -5,6 +5,7 @@
              xmlns:vm="clr-namespace:SoundOS6.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="SoundOS6.Views.MainView"
+			 xmlns:progRing="clr-namespace:AvaloniaProgressRing;assembly=AvaloniaProgressRing"
              x:DataType="vm:MainViewModel">
 	<Grid Background="Black">
 		<Image Opacity="0.5" Source="/Assets/Placeholders/DefaultWallpaper.jpg" Margin="-20,-20,-20,-20" Stretch="UniformToFill">
@@ -25,6 +26,7 @@
 					</Border.Background>
 				</Border>
 
+
 				<Grid x:Name="PlayerControls" Opacity="0.2">
 					<TextBlock x:Name="CurrentTime" Text="--:--" Foreground="White" Margin="25,0,25,50" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
 					<TextBlock x:Name="EndTime" Text="--:--" Foreground="White" Margin="25,0,25,50" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
@@ -42,6 +44,30 @@
 				<TextBlock Opacity="1" x:Name="Instructions" TextAlignment="Center" FontStretch="UltraCondensed" Text="Open de Muziek app om de controls te zien." TextWrapping="Wrap" Foreground="White" Margin="20,10,20,0" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
 				<Button x:Name="PlayCommandBtn" Click="Button_Click" IsEnabled="False" Opacity="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,5,5" Width="150" Height="50" />
+
+				<Image Opacity="0" Tapped="BackSong" Margin="-270,0,0,0" Source="/Assets/Icons/Light/NextSong.png" Height="50" Width="50" VerticalAlignment="Center" x:Name="NextSong">
+					<Image.RenderTransform>
+						<RotateTransform Angle="180" />
+					</Image.RenderTransform>
+				</Image>
+
+				<Grid Opacity="1" x:Name="WeerBlok" HorizontalAlignment="Center" Height="180" Width="250" Margin="500,0,0,170">
+					<Border Background="LightBlue" CornerRadius="15"/>
+					<TextBlock Opacity="0" x:Name="Stad" FontStretch="UltraCondensed" Text="Laken" Width="210" Foreground="Black" Margin="20,10,0,0" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+					<TextBlock Opacity="0" x:Name="Graad" FontStretch="UltraCondensed" Text="21°C" Foreground="Black" VerticalAlignment="Center" Margin="20,0,0,50" FontSize="62" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" />
+					<TextBlock Opacity="0" x:Name="Conditie" FontStretch="UltraCondensed" Text="" Foreground="Black" VerticalAlignment="Bottom" Margin="20,0,0,10" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" />
+					<TextBlock Opacity="0" x:Name="LaatstGeupdate" FontStretch="UltraCondensed" Text="21:35" Foreground="Black" VerticalAlignment="Bottom" Margin="0,0,20,10" FontSize="21" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" />
+					
+					<StackPanel VerticalAlignment="Center">
+						<TextBlock Opacity="1" TextAlignment="Center" TextWrapping="Wrap" x:Name="WeerStatus" Text="Laden..." Foreground="Black" VerticalAlignment="Center" Margin="10,0,10,0" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Center" />
+						<Button x:Name="RetryBTN" Tapped="Button_Tapped_1" Content="Herproberen" Foreground="Black" HorizontalAlignment="Center" Margin="0,5,0,0" Opacity="0" IsEnabled="False" />
+					</StackPanel>
+
+					<Button Opacity="1" Width="250" Height="180" Click="Weather_Click" IsEnabled="True" />
+				</Grid>
+
+				<Image Opacity="0" Tapped="ForwardSong" Margin="270,0,0,0" Source="/Assets/Icons/Light/NextSong.png" Height="50" Width="50" VerticalAlignment="Center" x:Name="PreviousSong" />
+
 			</Grid>
 			<Border>
 				<ContentControl x:Name="PageViewer"/>

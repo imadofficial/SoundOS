@@ -48,8 +48,6 @@ namespace SoundOS6.Views
             Icon.Source = Image;
         }
 
-
-
         public async void RemoveStatus()
         {
             var transition = new DoubleTransition

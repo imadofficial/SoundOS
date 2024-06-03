@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="SoundOS6.Views.Apps.Weather.MainWeather">
+	
+	<Grid x:Name="MainPanel">
+		<Border Background="#0D52AA" />
+
+		<Image Source="/Assets/Icons/Light/Back.png" Height="40" Margin="30,14,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+		<Button Click="BackTap" Opacity="0" Height="40" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,14,0,0" />
+
+		<TextBlock Opacity="1" x:Name="LocalFiles" Foreground="White" Text="Terug" Margin="70,14,0,0" FontSize="32" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" />
+		<Button Click="BackTap" Opacity="0" x:Name="LocalButton" Width="85" Height="40" Margin="78,14,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+		<Grid Height="100" Margin="0,50,0,0" VerticalAlignment="Top">
+			<TextBlock x:Name="Graad" Text="11°" Margin="40,0,0,0" FontSize="84" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
+			<TextBlock x:Name="Stad" Text="Londerzeel" Margin="160,10,0,0" FontSize="41" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
+			<TextBlock x:Name="LaatsteUpdate" Text="NaN" Margin="160,50,0,0" FontSize="28" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
+			<TextBlock x:Name="Conditie" Text="Winderig" Margin="0,30,40,0" FontSize="35" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="White"/>
+		</Grid>
+
+		<StackPanel Margin="0,160,0,0">
+			<Grid HorizontalAlignment="Left" Margin="40,0,0,0" Height="80" Width="270">
+				<Border CornerRadius="12" Opacity="0.4" Background="White"/>
+				<StackPanel VerticalAlignment="Center">
+					<TextBlock x:Name="HumidTitle" Text="Vochtigheid" Margin="20,0,0,0" FontSize="24" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+				</StackPanel>
+				<TextBlock x:Name="Humidity" Text="60%" Margin="0,0,20,0" FontSize="41" FontFamily="/Assets/Latin/Default.otf#SF Pro Display" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White"/>
+			</Grid>
+		</StackPanel>
+	</Grid>
+</UserControl>
