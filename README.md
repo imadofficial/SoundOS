@@ -3,7 +3,7 @@ The music player made for all types of operating systems, Optimized for Windows 
 
 **Latest builds**
 
-| [Windows 11 (ARM64)](https://github.com/imadofficial/PiSpeaker/releases) | [Windows 11 (x86)](https://github.com/imadofficial/PiSpeaker/releases)
+| [Linux (ARM64)](https://github.com/imadofficial/PiSpeaker/releases) | [Windows 11 (x86)](https://github.com/imadofficial/PiSpeaker/releases)
 | ------------- | ------------- |
 
 ## Does SoundOS not open on Linux?
